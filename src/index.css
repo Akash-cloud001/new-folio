@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    /* colors */
+    --primary-dark-blue: #1D3752;
+    --secondary-gold: #F7c232;
+    --text: #fff;
+    --brand: #6919ff;
+    --primary-light-blue: #2c7695;
+
+    /* font-families */
+    --ff-japanese: "Noto Sans JP", sans-serif;
+    --ff-hindi: "Tiro Devanagari Hindi", serif;
+    --ff-raleway: "Raleway", sans-serif;
+    --ff-titan: "Titan One", sans-serif
+}
+
+.primary-text{
+    color: var(--primary-dark-blue);
+}
+.white-text{ 
+    color: var(--text);
+}
+.secondary-text{
+    color: var(--secondary-gold);
+}
+
+
+.primary-fill{
+    fill: var(--primary-dark-blue);
+}
+.secondary-fill{
+    fill: var(--secondary-gold);
+}
+.white-fill{
+    fill: var(--text);
+}
+
+.ff-japanese{
+    font-family: var(--ff-japanese);
+}
+.ff-hindi{
+    font-family: var(--ff-hindi);
+}
+.ff-raleway{
+    font-family: var(--ff-raleway);
+}
+.ff-titan{
+    font-family: var(--ff-titan);
+}
