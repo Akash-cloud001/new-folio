@@ -4,7 +4,7 @@
 
 :root{
     /* colors */
-    --primary-dark-blue: #1D3752;
+    --primary-dark-blue: #060918;
     --secondary-gold: #F7c232;
     --text: #fff;
     --brand: #6919ff;
@@ -49,4 +49,15 @@
 }
 .ff-titan{
     font-family: var(--ff-titan);
+}
+
+#main-container{
+    background: var(--primary-dark-blue);
+    height: 100vh;
+    width: 100%;
+    color: var(--text);
+    max-width: 1200px;
+    margin-inline: auto;
+    position: relative;
+    padding-inline: 16px;
 }
