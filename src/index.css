@@ -61,7 +61,7 @@ body{
 }
 #main-container{
     background: var(--primary-dark-blue);
-    height: 100vh;
+    height: 200vh;
     width: 100%;
     color: var(--text);
     max-width: 1400px;
