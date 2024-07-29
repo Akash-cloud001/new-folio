@@ -15,6 +15,7 @@ const Text = forwardRef(
       bevelOffset = 0,
       bevelSegments = 1,
       position = [0, 0, 0],
+      textScale=1
     },
     ref
   ) => {
@@ -33,6 +34,7 @@ const Text = forwardRef(
           bevelOffset={bevelOffset}
           bevelSegments={bevelSegments}
           position={position}
+          scale={textScale}
         >
           {alphabet}
           <meshMatcapMaterial matcap={matTexture} />
