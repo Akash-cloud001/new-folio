@@ -14,11 +14,74 @@
     --ff-japanese: "Noto Sans JP", sans-serif;
     --ff-hindi: "Tiro Devanagari Hindi", serif;
     --ff-raleway: "Raleway", sans-serif;
-    --ff-titan: "Titan One", sans-serif
+    --ff-titan: "Titan One", sans-serif;
+
+
+    --primary-red: #ff535b;
+    --secondary-neon: #88e7c4;
+    --color-white: #fff;
+    --color-text: #f2e8de;
+    --color-bg: #151515;
+    --color-bg-alt: #1d1d1d;
 
 
     font-family: var(var(--ff-raleway));
 }
+
+@font-face {
+font-family: "ClashDisplayExtraLight";   /*Can be any text*/
+src: local("ClashDisplayExtraLight"),
+    url("./assets/fonts/ClashDisplay-Extralight.woff") format("woff");
+}
+@font-face {
+font-family: "ClashDisplayLight";   /*Can be any text*/
+src: local("ClashDisplayLight"),
+    url("./assets/fonts/ClashDisplay-Light.woff") format("woff");
+}
+@font-face {
+font-family: "ClashDisplayMedium";   /*Can be any text*/
+src: local("ClashDisplayMedium"),
+    url("./assets/fonts/ClashDisplay-Medium.woff") format("woff");
+}
+@font-face {
+font-family: "ClashDisplayRegular";   /*Can be any text*/
+src: local("ClashDisplayRegular"),
+    url("./assets/fonts/ClashDisplay-Regular.woff") format("woff");
+}
+@font-face {
+font-family: "ClashDisplaySemiBold";   /*Can be any text*/
+src: local("ClashDisplaySemiBold"),
+    url("./assets/fonts/ClashDisplay-Semibold.woff") format("woff");
+}
+
+@font-face {
+font-family: "ClashDisplayBold";   /*Can be any text*/
+src: local("ClashDisplayBold"),
+    url("./assets/fonts/ClashDisplay-Bold.woff") format("woff");
+}
+
+
+
+.ff-extra-light{
+    font-family: ClashDisplayExtraLight;
+  }
+  .ff-light{
+    font-family: ClashDisplayLight;
+  }
+  .ff-medium{
+    font-family: ClashDisplayMedium;
+  }
+  .ff-regular{
+    font-family: ClashDisplayRegular;
+  }
+  .ff-semi-bold{
+    font-family: ClashDisplaySemiBold;
+  }
+  .ff-bold{
+    font-family: ClashDisplayBold;
+  }
+  
+
 
 .primary-text{
     color: var(--primary-dark-blue);
