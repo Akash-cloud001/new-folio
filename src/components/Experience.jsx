@@ -1,20 +1,29 @@
-import { Center, OrbitControls } from "@react-three/drei";
+import { Center, OrbitControls, Clouds, Cloud } from "@react-three/drei";
 import React, { useEffect, useRef, useState } from "react";
-import { useThree } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { useControls } from "leva";
-
+import { useLoader } from "@react-three/fiber";
+import * as THREE from "three";
+import { TextureLoader } from "three/src/loaders/TextureLoader";
 import Text from "./3DComponents/Text";
 import Skyborg from "./3DComponents/Skyborg";
+import floorMap from "../assets/textures/floorImg.png";
+
 const Experience = () => {
   const skyArr = ["S", "K", "Y"];
   const folioArr = ["F", "O", "L", "I", "O"];
   const skyRef = useRef([]);
   const folioRef = useRef([]);
 
+  const floorTexture = useLoader(TextureLoader, floorMap);
   const [animationState, setAnimationState] = useState("standingUp");
-
+  const { xAxis, yAxis, zAxis } = useControls("skyBorg", {
+    xAxis: { value: 0, min: -10, max: 10, step: 0.01 },
+    yAxis: { value: 0, min: -10, max: 10, step: 0.01 },
+    zAxis: { value: 0, min: -10, max: 10, step: 0.01 },
+  });
   // const { skyPostion } = useControls("sky", {
 
   // });
@@ -23,11 +32,6 @@ const Experience = () => {
   //   yAixs: -2,
   //   zAxis: 0,
   // });
-  const { xAxis, yAxis, zAxis } = useControls("skyBorg", {
-    xAxis: { value: 0, min: -10, max: 10, step: 0.01 },
-    yAixs: { value: 0, min: -10, max: 10, step: 0.01 },
-    zAxis: { value: 0, min: -10, max: 10, step: 0.01 },
-  });
 
   const handleCurrentAnimation = (animType) => {
     setAnimationState(animType);
@@ -62,9 +66,27 @@ const Experience = () => {
   //   }
   // });
 
+  const cameraRef = useRef();
+  const skyBorgRef = useRef();
+  const vec = new THREE.Vector3();
+
+  useFrame(state =>{
+    if(skyBorgRef.current){
+      state.camera.lookAt(skyBorgRef.current.position)
+      state.camera.position.lerp(vec.set(xPosition, yPosition, zPosition), .01)
+      state.camera.updateProjectionMatrix()
+    }
+    return null;
+  })
+
+  useEffect(() => {
+    floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping;
+    floorTexture.repeat.set(25, 25); // Adjust the repeat values as needed
+    floorTexture.needsUpdate = true;
+  }, [floorTexture]);
   return (
     <>
-      <OrbitControls makeDefault/>
+      {/* <OrbitControls makeDefault /> */}
       {/* <Center position={[0, 2, 0]}>
         <group>
           {skyArr.map((alphabet, idx) => (
@@ -92,17 +114,24 @@ const Experience = () => {
           ))}
         </group>
       </Center> */}
-      <Center>
-        <Skyborg
-          animationState={animationState}
-          scale={2}
-          position-x={xAxis}
-          position-y={yAxis}
-          position-z={zAxis}
-        />
-      </Center>
+      <Skyborg
+        ref={skyBorgRef}
+        animationState={animationState}
+        scale={2}
+        position-x={xAxis}
+        position-y={yAxis}
+        position-z={zAxis}
+      />
       {/*  position={[skyBorg.xAxis, skyBorg.yAxis, skyBorg.zAxis]} */}
-      <ambientLight intensity={2} />
+      <mesh rotation={[Math.PI * 0.5, 0, 0]}>
+        <planeGeometry args={[1000, 1000, 20, 20]} />
+        <meshStandardMaterial side={THREE.DoubleSide} map={floorTexture} />
+      </mesh>
+      {/* <Clouds material={THREE.MeshBasicMaterial}>
+        <Cloud segments={40} bounds={[10, 2, 2]} volume={10} color="orange" />
+        <Cloud seed={1} scale={2} volume={5} color="hotpink" fade={100} />
+      </Clouds>
+      <ambientLight intensity={2} /> */}
     </>
   );
 };
