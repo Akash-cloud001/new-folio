@@ -10,7 +10,7 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 import Text from "./3DComponents/Text";
 import Skyborg from "./3DComponents/Skyborg";
 import floorMap from "../assets/textures/floorImg.png";
-
+gsap.registerPlugin(useGSAP);
 const Experience = () => {
   const skyArr = ["S", "K", "Y"];
   const folioArr = ["F", "O", "L", "I", "O"];
@@ -18,12 +18,12 @@ const Experience = () => {
   const folioRef = useRef([]);
 
   const floorTexture = useLoader(TextureLoader, floorMap);
-  const [animationState, setAnimationState] = useState("standingUp");
-  const { xAxis, yAxis, zAxis } = useControls("skyBorg", {
-    xAxis: { value: 0, min: -10, max: 10, step: 0.01 },
-    yAxis: { value: 0, min: -10, max: 10, step: 0.01 },
-    zAxis: { value: 0, min: -10, max: 10, step: 0.01 },
-  });
+  // const [animationState, setAnimationState] = useState("standingUp");
+  // const { xAxis, yAxis, zAxis } = useControls("skyBorg", {
+  //   xAxis: { value: 0, min: -10, max: 10, step: 0.01 },
+  //   yAxis: { value: 0, min: -10, max: 10, step: 0.01 },
+  //   zAxis: { value: 0, min: -10, max: 10, step: 0.01 },
+  // });
   // const { skyPostion } = useControls("sky", {
 
   // });
@@ -66,24 +66,13 @@ const Experience = () => {
   //   }
   // });
 
-  const cameraRef = useRef();
-  const skyBorgRef = useRef();
-  const vec = new THREE.Vector3();
-
-  useFrame(state =>{
-    if(skyBorgRef.current){
-      state.camera.lookAt(skyBorgRef.current.position)
-      state.camera.position.lerp(vec.set(xPosition, yPosition, zPosition), .01)
-      state.camera.updateProjectionMatrix()
-    }
-    return null;
-  })
 
   useEffect(() => {
     floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping;
     floorTexture.repeat.set(25, 25); // Adjust the repeat values as needed
     floorTexture.needsUpdate = true;
   }, [floorTexture]);
+
   return (
     <>
       {/* <OrbitControls makeDefault /> */}
@@ -114,14 +103,7 @@ const Experience = () => {
           ))}
         </group>
       </Center> */}
-      <Skyborg
-        ref={skyBorgRef}
-        animationState={animationState}
-        scale={2}
-        position-x={xAxis}
-        position-y={yAxis}
-        position-z={zAxis}
-      />
+     
       {/*  position={[skyBorg.xAxis, skyBorg.yAxis, skyBorg.zAxis]} */}
       <mesh rotation={[Math.PI * 0.5, 0, 0]}>
         <planeGeometry args={[1000, 1000, 20, 20]} />

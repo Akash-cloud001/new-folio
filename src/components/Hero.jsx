@@ -1,72 +1,65 @@
-import React, { Suspense, useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import Experience from "./Experience";
-import { OrbitControls, CameraShake, Environment } from "@react-three/drei";
+import SkyborgTyping from "./3DComponents/SkyborgTyping";
+import { Stage } from "@react-three/drei";
 import "../App.css";
 import { useControls } from "leva";
-import nx from '../assets/textures/environment/nx.png';
-import ny from '../assets/textures/environment/ny.png';
-import nz from '../assets/textures/environment/nz.png';
-import px from '../assets/textures/environment/px.png';
-import py from '../assets/textures/environment/py.png';
-import pz from '../assets/textures/environment/pz.png';
-import Loading from "./Loading";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import Loading from "./Loading";
+gsap.registerPlugin(useGSAP);
 
-const CustomCamera = () =>{
-  const {camera} = useThree();
-  const { camX, camY, camZ } = useControls("camera", {
-    camX: { value: 0, min: 0, max: 100, step: 0.1 },
-    camY: { value: 3, min: 0, max: 100, step: 0.1 },
-    camZ: { value: 4, min: 0, max: 100, step: 0.1 },
-    fov: {value: 45, min: 10, max: 100, step: 0.1}
+const CustomCamera = ({ skyborgRef }) => {
+  const { camera } = useThree();
+  const { camX, camY, camZ, fov } = useControls("camera", {
+    camX: { value: 0, min: -10, max: 10, step: 0.0001 },
+    camY: { value: 1.98, min: 0, max: 10, step: 0.0001 },
+    camZ: { value: 4.63, min: 0, max: 10, step: 0.0001 },
+    fov: { value: 45, min: 10, max: 100, step: 0.0001 },
   });
+
   useFrame(() => {
-    if(camera){
+    if (camera) {
       camera.position.set(camX, camY, camZ);
+      camera.fov = fov;
+      camera.lookAt(skyborgRef.current.position)
+      camera.updateProjectionMatrix();
     }
   });
-  useEffect(() => {
-    const animateCamera = () => {
-      const path = [
-        { x: 0, y: 4, z: 10 },
-        { x: 5, y: 10, z: 15 },
-        { x: 10, y: 20, z: 20 },
-      ];
-      gsap.to(camera.position, {
-        duration: 3,
-        repeat: -1,
-        keyframes: path.map(p => ({ x: p.x, y: p.y, z: p.z })),
-        ease: "power1.inOut",
-        onUpdate: () => camera.updateProjectionMatrix(),
-      });
-    };
+  // useGSAP(() => {
+  //   gsap.to(camera.position, {
+  //     y: 3.03,
+  //     z: 5.05,
+  //     duration: 3,
+  //     // ease:'power1.in'
+  //   });
+  // });
 
-    animateCamera();
-  }, [camera]);
   return null;
-}
+};
 
 const Hero = () => {
-  
-
+  const skyborgRef = useRef();
   return (
     <section className="hero-container">
       <Canvas
         shadows
         dpr={[1, 2]}
-        camera={{ position: [0, 3, 4], fov: 45 }}
+        camera={{ position: [0, 1.98, 4.63], fov: 45 }}
       >
-        <Suspense fallback={null}>
-          <CustomCamera />
-          <Environment
-            files={[px, nx, py, ny, pz, nz]}
-            background
-            backgroundBlurriness={0} // optional blur factor between 0 and 1 (default: 0, only works with three 0.146 and up)
-            backgroundIntensity={0.5}
-          />
-          <Experience />
-          <directionalLight position={[0, -5, 0]} color="white" intensity={2} />
+        <Suspense fallback={<Loading />}>
+          <color args={["ff0000"]} attach="background" />
+          <Stage
+            adjustCamera
+            intensity={1}
+            shadows="contact"
+            environment="city"
+          >
+            <SkyborgTyping ref={skyborgRef} scale={[0.5,0.5,0.5]} />
+          </Stage>
+
+          <CustomCamera skyborgRef={skyborgRef} />
+          {/* <directionalLight position={[0, -5, 0]} color="white" intensity={2} /> */}
         </Suspense>
       </Canvas>
     </section>
