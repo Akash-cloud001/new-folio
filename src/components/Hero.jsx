@@ -45,8 +45,7 @@ const Hero = () => {
         camera={{ position: [0, 1.50, 5.58], fov: 45 }}
       >
         <Suspense fallback={<Loading />}>
-          <color args={["#ffffff"]} attach="background" />
-          <OrbitControls />
+          <color args={["#eee"]} attach="background" />
           <Scene />
         </Suspense>
       </Canvas>
