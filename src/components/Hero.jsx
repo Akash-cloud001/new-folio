@@ -6,6 +6,19 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import Loading from "./Loading";
 import Scene from "./ui/Scene";
+
+// import studio from "@theatre/studio";
+// import extension from "@theatre/r3f/dist/extension"
+// studio.initialize();
+// studio.extend(extension)
+
+// Vite
+// if (import.meta.env.DEV) {
+//   studio.initialize()
+//   studio.extend(extension)
+// }
+
+
 gsap.registerPlugin(useGSAP);
 
 const CustomCamera = ({ skyborgRef }) => {
@@ -45,7 +58,8 @@ const Hero = () => {
         camera={{ position: [0, 1.50, 5.58], fov: 45 }}
       >
         <Suspense fallback={<Loading />}>
-          <color args={["#eee"]} attach="background" />
+        {/* <OrbitControls/> */}
+          <color args={["#ff535b"]} attach="background" />
           <Scene />
         </Suspense>
       </Canvas>

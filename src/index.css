@@ -2,137 +2,121 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{
-    /* colors */
-    --primary-dark-blue: #060918;
-    --secondary-gold: #F7c232;
-    --text: #fff;
-    --brand: #6919ff;
-    --primary-light-blue: #2c7695;
+:root {
+  /* colors */
+  --secondary-gold: #f7c232;
+  --brand: #6919ff;
 
-    /* font-families */
-    --ff-japanese: "Noto Sans JP", sans-serif;
-    --ff-hindi: "Tiro Devanagari Hindi", serif;
-    --ff-raleway: "Raleway", sans-serif;
-    --ff-titan: "Titan One", sans-serif;
+  /* font-families */
+  --ff-japanese: "Noto Sans JP", sans-serif;
+  --ff-hindi: "Tiro Devanagari Hindi", serif;
+  --ff-raleway: "Raleway", sans-serif;
+  --ff-titan: "Titan One", sans-serif;
 
+  --primary-red: #ff535b;
+  --secondary-neon: #88e7c4;
+  --color-white: #fff;
+  --color-text: #f2e8de;
+  --color-bg: #151515;
+  --color-bg-alt: #1d1d1d;
 
-    --primary-red: #ff535b;
-    --secondary-neon: #88e7c4;
-    --color-white: #fff;
-    --color-text: #f2e8de;
-    --color-bg: #151515;
-    --color-bg-alt: #1d1d1d;
-
-
-    font-family: var(var(--ff-raleway));
+  font-family: var(var(--ff-raleway));
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 @font-face {
-font-family: "ClashDisplayExtraLight";   /*Can be any text*/
-src: local("ClashDisplayExtraLight"),
+  font-family: "ClashDisplayExtraLight"; /*Can be any text*/
+  src: local("ClashDisplayExtraLight"),
     url("./assets/fonts/ClashDisplay-Extralight.woff") format("woff");
 }
 @font-face {
-font-family: "ClashDisplayLight";   /*Can be any text*/
-src: local("ClashDisplayLight"),
+  font-family: "ClashDisplayLight"; /*Can be any text*/
+  src: local("ClashDisplayLight"),
     url("./assets/fonts/ClashDisplay-Light.woff") format("woff");
 }
 @font-face {
-font-family: "ClashDisplayMedium";   /*Can be any text*/
-src: local("ClashDisplayMedium"),
+  font-family: "ClashDisplayMedium"; /*Can be any text*/
+  src: local("ClashDisplayMedium"),
     url("./assets/fonts/ClashDisplay-Medium.woff") format("woff");
 }
 @font-face {
-font-family: "ClashDisplayRegular";   /*Can be any text*/
-src: local("ClashDisplayRegular"),
+  font-family: "ClashDisplayRegular"; /*Can be any text*/
+  src: local("ClashDisplayRegular"),
     url("./assets/fonts/ClashDisplay-Regular.woff") format("woff");
 }
 @font-face {
-font-family: "ClashDisplaySemiBold";   /*Can be any text*/
-src: local("ClashDisplaySemiBold"),
+  font-family: "ClashDisplaySemiBold"; /*Can be any text*/
+  src: local("ClashDisplaySemiBold"),
     url("./assets/fonts/ClashDisplay-Semibold.woff") format("woff");
 }
 
 @font-face {
-font-family: "ClashDisplayBold";   /*Can be any text*/
-src: local("ClashDisplayBold"),
+  font-family: "ClashDisplayBold"; /*Can be any text*/
+  src: local("ClashDisplayBold"),
     url("./assets/fonts/ClashDisplay-Bold.woff") format("woff");
 }
 
-
-
-.ff-extra-light{
-    font-family: ClashDisplayExtraLight;
-  }
-  .ff-light{
-    font-family: ClashDisplayLight;
-  }
-  .ff-medium{
-    font-family: ClashDisplayMedium;
-  }
-  .ff-regular{
-    font-family: ClashDisplayRegular;
-  }
-  .ff-semi-bold{
-    font-family: ClashDisplaySemiBold;
-  }
-  .ff-bold{
-    font-family: ClashDisplayBold;
-  }
-  
-
-
-.primary-text{
-    color: var(--primary-dark-blue);
+.ff-japanese {
+  font-family: var(--ff-japanese);
 }
-.white-text{ 
-    color: var(--text);
+.ff-hindi {
+  font-family: var(--ff-hindi);
 }
-.secondary-text{
-    color: var(--secondary-gold);
+.primary-red {
+  color: var(--primary-red);
 }
-
-
-.primary-fill{
-    fill: var(--primary-dark-blue);
+.fill-primary {
+  fill: var(--primary-red);
 }
-.secondary-fill{
-    fill: var(--secondary-gold);
+.secondary-neon {
+  color: var(--secondary-neon);
 }
-.white-fill{
-    fill: var(--text);
+.text-color {
+  color: var(--color-text);
+}
+.white-color {
+  color: var(--color-white);
+}
+.ff-extra-light {
+  font-family: ClashDisplayExtraLight;
+}
+.ff-light {
+  font-family: ClashDisplayLight;
+}
+.ff-medium {
+  font-family: ClashDisplayMedium;
+}
+.ff-regular {
+  font-family: ClashDisplayRegular;
+}
+.ff-semibold {
+  font-family: ClashDisplaySemiBold;
+}
+.ff-bold {
+  font-family: ClashDisplayBold;
 }
 
-.ff-japanese{
-    font-family: var(--ff-japanese);
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background: var(--primary-dark-blue);
 }
-.ff-hindi{
-    font-family: var(--ff-hindi);
-}
-.ff-raleway{
-    font-family: var(--ff-raleway);
-}
-.ff-titan{
-    font-family: var(--ff-titan);
-}
-body{
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    background: var(--primary-dark-blue);
-}
-#main-container{
-    background: var(--primary-dark-blue);
-    height: 200vh;
-    width: 100%;
-    color: var(--text);
-    margin-inline: auto;
-    position: relative;
-    padding-inline: 16px;
+#main-container {
+  background: var(--primary-dark-blue);
+  height: 200vh;
+  width: 100%;
+  color: var(--text);
+  margin-inline: auto;
+  position: relative;
+  padding-inline: 16px;
 }
 @media screen and (min-width: 640px) {
-    #main-container{
-        padding-inline: 0px;
-    }
+  #main-container {
+    padding-inline: 0px;
+  }
 }
