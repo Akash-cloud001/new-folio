@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls} from "@react-three/drei";
+import { Environment, OrbitControls} from "@react-three/drei";
 import "../App.css";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -59,7 +59,7 @@ const Hero = () => {
       >
         <Suspense fallback={<Loading />}>
         {/* <OrbitControls/> */}
-          <color args={["#ff535b"]} attach="background" />
+          {/* <color args={["#000"]} attach="background" /> */}
           <Scene />
         </Suspense>
       </Canvas>

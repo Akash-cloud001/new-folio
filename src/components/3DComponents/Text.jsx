@@ -1,17 +1,17 @@
 import { Text3D } from "@react-three/drei";
 import React, { forwardRef } from "react";
-import fontFamily from "../../assets/fonts/Titan-One_Regular.json";
-import texture from "../../assets/textures/4.png";
+import fontFamily from "../../assets/fonts/Clash_Display.json";
+import texture from "../../assets/textures/redMatCap.png";
 import { useTexture } from "@react-three/drei";
 const Text = forwardRef(
   (
     {
       alphabet,
-      size = 1.25,
-      height = 0.4,
+      size = 1,
+      height = 0.3,
       curveSegments = 36,
-      bevelThickness = 0.02,
-      bevelSize = 0.02,
+      bevelThickness = 0.01,
+      bevelSize = 0.01,
       bevelOffset = 0,
       bevelSegments = 1,
       position = [0, 0, 0],
