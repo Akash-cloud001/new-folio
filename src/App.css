@@ -1,12 +1,15 @@
 .hero-container{
-    height: 100vh;
+    height: 100vh ;
     width: 100%;
-    left: 50%;
-    top: 0%;
-    transform: translateX(-50%);
-    overflow: hidden;
-    /* background: #fff url('./assets/svgs/background-lines.svg') ; */
-    background-size: 110%;
-    background-position: center;
     position: absolute;
+    inset: 0;
+    
+    /* left: 50%; */
+    /* top: 0%; */
+    /* transform: translateX(-50%); */
+    /* overflow: hidden; */
+    /* background: #fff url('./assets/svgs/background-lines.svg') ; */
+    /* background-size: 110%; */
+    /* background-position: center; */
+    /* position: absolute; */
 }
