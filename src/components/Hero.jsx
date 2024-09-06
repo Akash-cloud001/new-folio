@@ -59,7 +59,7 @@ const Hero = () => {
       >
         <Suspense fallback={<Loading />}>
         {/* <OrbitControls/> */}
-          {/* <color args={["#000"]} attach="background" /> */}
+          <color args={["#151515"]} attach="background" />
           <Scene />
         </Suspense>
       </Canvas>
