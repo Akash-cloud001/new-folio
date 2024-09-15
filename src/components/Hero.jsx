@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import Loading from "./Loading";
 import Scene from "./ui/Scene";
+import { useControls } from "leva";
 
 // import studio from "@theatre/studio";
 // import extension from "@theatre/r3f/dist/extension"
@@ -23,29 +24,54 @@ gsap.registerPlugin(useGSAP);
 
 const CustomCamera = ({ skyborgRef }) => {
   const { camera } = useThree();
-  // const { camX, camY, camZ, fov } = useControls("camera", {
-  //   camX: { value: 0, min: -10, max: 10, step: 0.0001 },
-  //   camY: { value: 1.50, min: 0, max: 10, step: 0.0001 },
-  //   camZ: { value: 5.58, min: 0, max: 10, step: 0.0001 },
-  //   fov: { value: 45, min: 10, max: 100, step: 0.0001 },
-  // });
-  useEffect(()=>{
-    camera.position.set(0, 1.50, 5.58)
-    camera.fov = 45
-    camera.updateProjectionMatrix()
-  },[skyborgRef])
-  useFrame(()=>{
-    if(skyborgRef.current){
-      camera.lookAt(skyborgRef.current.position)
-    }
-  })
-  // useFrame(() => {
-  //   if (camera) {
-  //     camera.position.set(camX, camY, camZ);
-  //     camera.fov = fov;
-  //     camera.updateProjectionMatrix();
-  //   }
-  // });
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const prevMousePos = useRef({ x: 0, y: 0 });
+
+
+  const radius = 6; 
+  const minAzimuthalAngle = - (25 * Math.PI) / 180; 
+  const maxAzimuthalAngle = (100 * Math.PI) / 180; 
+
+  const dampingFactor = 1; 
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      const x = (event.clientX / window.innerWidth) * 2 - 1; 
+      const y = -(event.clientY / window.innerHeight) * 2 + 1; 
+      setMousePos({ x, y });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
+  useFrame(() => {
+    let azimuthalAngle = mousePos.x * Math.PI;
+
+    const deltaX = mousePos.x - prevMousePos.current.x;
+
+    const clampedDeltaX = deltaX * dampingFactor;
+    azimuthalAngle = azimuthalAngle - clampedDeltaX;
+    azimuthalAngle = Math.max(minAzimuthalAngle, Math.min(maxAzimuthalAngle, azimuthalAngle));
+    const newX = radius * Math.sin(azimuthalAngle);
+    const newZ = radius * Math.cos(azimuthalAngle);
+    // Use GSAP to smoothly update the camera's position
+    gsap.to(camera.position, {
+      x: newX,
+      y: -mousePos.y * 1, // Adjust height based on mouse Y
+      z: newZ,
+      duration: 2, // Smooth transition
+      ease: "power2.out",
+    });
+    camera.lookAt(0, 0, 0);
+    camera.updateProjectionMatrix();
+
+    prevMousePos.current = mousePos;
+  });
+
   return null;
 };
 
@@ -55,10 +81,10 @@ const Hero = () => {
       <Canvas
         shadows={true}
         dpr={[1, 2]}
-        camera={{ position: [0, 1.50, 5.58], fov: 45 }}
+        camera={{ position: [0, 1.50, 5.58], fov: 55 }}
       >
         <Suspense fallback={<Loading />}>
-        {/* <OrbitControls/> */}
+        <CustomCamera />
           <color args={["#151515"]} attach="background" />
           <Scene />
         </Suspense>

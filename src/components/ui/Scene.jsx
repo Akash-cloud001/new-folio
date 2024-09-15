@@ -74,7 +74,7 @@ const Scene = () => {
             side={THREE.DoubleSide}
             uniforms={{
               uBendFactor: { value: 0.2 },
-              uFreq: { value: new THREE.Vector2(5, 10) },
+              uFreq: { value: new THREE.Vector2(1, 1) },
               uTime: { value: 0 },
               uTexture: videoTexture,
             }}

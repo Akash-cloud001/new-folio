@@ -1,44 +1,29 @@
-import * as THREE from 'three'
-import { useMemo } from 'react'
+import React from 'react'
 
-export default function CurvedPlane({ width, height, radius, children, ...props }) {
-  const { geometry, heightMin, heightMax } = useMemo(() => curvedPlaneGeometry(width, height, radius), [width, height, radius])
-
+const CurvedPlane = () => {
   return (
-    <group {...props}>
-      <mesh geometry={geometry} receiveShadow castShadow position-z={-heightMax}>
-        {children}
-      </mesh>
-    </group>
+    <>
+      <mesh
+          ref={customRef}
+          rotation={[0, -2.42, 0]}
+          position={[-0.75, 0.37, 0.19]}
+        >
+          <planeGeometry args={[4, 2.5, 32, 32]} />
+          <shaderMaterial
+            vertexShader={VertexShader}
+            fragmentShader={FragmentShader}
+            wireframe={false}
+            side={THREE.DoubleSide}
+            uniforms={{
+              uBendFactor: { value: 0.2 },
+              uFreq: { value: new THREE.Vector2(5, 10) },
+              uTime: { value: 0 },
+              uTexture: videoTexture,
+            }}
+          />
+        </mesh>
+    </>
   )
 }
 
-function curvedPlaneGeometry(width = 1, height = 1, radius = 2) {
-  const segments = 32
-  const segmentsH = segments
-  const segmentsV = segments / (width / height) // square
-  const geometry = new THREE.PlaneGeometry(width, height, segmentsH, segmentsV)
-
-  let heightMin = Infinity
-  let heightMax = -Infinity
-
-  const distanceMax = Math.sqrt((width / 2) ** 2 + (height / 2) ** 2)
-  radius = Math.max(distanceMax, radius)
-
-  const position = geometry.attributes.position
-  for (let i = 0; i < position.count; i++) {
-    const x = position.getX(i)
-    const y = position.getY(i)
-
-    const distance = Math.sqrt(x * x + y * y)
-    const height = Math.sqrt(Math.max(radius ** 2 - distance ** 2, 0))
-    heightMin = Math.min(height, heightMin)
-    heightMax = Math.max(height, heightMax)
-    position.setZ(i, height)
-  }
-
-  // geometry.computeVertexNormals()
-  // position.needsUpdate = true
-
-  return { geometry, heightMin, heightMax }
-}
+export default CurvedPlane;
