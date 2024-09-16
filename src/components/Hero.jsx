@@ -26,9 +26,7 @@ const CustomCamera = ({ skyborgRef }) => {
   const { camera } = useThree();
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const prevMousePos = useRef({ x: 0, y: 0 });
-
-
-  const radius = 6; 
+  const radius = 7; 
   const minAzimuthalAngle = - (25 * Math.PI) / 180; 
   const maxAzimuthalAngle = (100 * Math.PI) / 180; 
 
@@ -39,6 +37,7 @@ const CustomCamera = ({ skyborgRef }) => {
       const x = (event.clientX / window.innerWidth) * 2 - 1; 
       const y = -(event.clientY / window.innerHeight) * 2 + 1; 
       setMousePos({ x, y });
+    
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -47,6 +46,8 @@ const CustomCamera = ({ skyborgRef }) => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
+
+
 
   useFrame(() => {
     let azimuthalAngle = mousePos.x * Math.PI;
@@ -76,6 +77,7 @@ const CustomCamera = ({ skyborgRef }) => {
 };
 
 const Hero = () => {
+
   return (
     <section className="hero-container">
       <Canvas
@@ -86,7 +88,7 @@ const Hero = () => {
         <Suspense fallback={<Loading />}>
         <CustomCamera />
           <color args={["#151515"]} attach="background" />
-          <Scene />
+          <Scene/>
         </Suspense>
       </Canvas>
     </section>

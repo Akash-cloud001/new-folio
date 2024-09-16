@@ -30,11 +30,12 @@ const Scene = () => {
     if (customRef.current && videoTexture) {
       customRef.current.material.uniforms.uTexture.value = videoTexture;
     }
-  }, [texture]);
+  }, []);
+
 
   useFrame((state, delta) => {
     if (customRef.current && customRef.current.material) {
-      customRef.current.material.uniforms.uTime.value+=delta
+      customRef.current.material.uniforms.uTime.value += delta;
     }
   });
 
@@ -66,15 +67,15 @@ const Scene = () => {
           rotation={[0, -2.42, 0]}
           position={[-0.75, 0.37, 0.19]}
         >
-          <planeGeometry args={[4, 2.5, 32, 32]} />
+          <planeGeometry args={[4, 2.5, 64, 64]} />
           <shaderMaterial
             vertexShader={VertexShader}
             fragmentShader={FragmentShader}
-            wireframe={false}
+            wireframe={true}
             side={THREE.DoubleSide}
             uniforms={{
               uBendFactor: { value: 0.2 },
-              uFreq: { value: new THREE.Vector2(1, 1) },
+              uFreq: { value: new THREE.Vector2(7, 5) },
               uTime: { value: 0 },
               uTexture: videoTexture,
             }}
