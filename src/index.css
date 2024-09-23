@@ -28,37 +28,87 @@
   box-sizing: border-box;
 }
 
+/* Clash Display */
+
 @font-face {
-  font-family: "ClashDisplayExtraLight"; /*Can be any text*/
+  font-family: "ClashDisplayExtraLight"; 
   src: local("ClashDisplayExtraLight"),
     url("./assets/fonts/ClashDisplay-Extralight.woff") format("woff");
 }
 @font-face {
-  font-family: "ClashDisplayLight"; /*Can be any text*/
+  font-family: "ClashDisplayLight"; 
   src: local("ClashDisplayLight"),
     url("./assets/fonts/ClashDisplay-Light.woff") format("woff");
 }
 @font-face {
-  font-family: "ClashDisplayMedium"; /*Can be any text*/
+  font-family: "ClashDisplayMedium"; 
   src: local("ClashDisplayMedium"),
     url("./assets/fonts/ClashDisplay-Medium.woff") format("woff");
 }
 @font-face {
-  font-family: "ClashDisplayRegular"; /*Can be any text*/
+  font-family: "ClashDisplayRegular"; 
   src: local("ClashDisplayRegular"),
     url("./assets/fonts/ClashDisplay-Regular.woff") format("woff");
 }
 @font-face {
-  font-family: "ClashDisplaySemiBold"; /*Can be any text*/
+  font-family: "ClashDisplaySemiBold"; 
   src: local("ClashDisplaySemiBold"),
     url("./assets/fonts/ClashDisplay-Semibold.woff") format("woff");
 }
 
 @font-face {
-  font-family: "ClashDisplayBold"; /*Can be any text*/
+  font-family: "ClashDisplayBold"; 
   src: local("ClashDisplayBold"),
     url("./assets/fonts/ClashDisplay-Bold.woff") format("woff");
 }
+
+
+/* Humane font-family */
+
+@font-face {
+  font-family: "humane-light";
+  src: local("humane-light"),url("./assets/fonts/humane/Humane-Light.woff");
+}
+@font-face {
+  font-family: "humane-extra-light";
+  src: local("humane-extra-light"),url("./assets/fonts/humane/Humane-ExtraLight.woff");
+}
+@font-face {
+  font-family: "humane-regular";
+  src: local("humane-regular"),url("./assets/fonts/humane/Humane-Regular.woff");
+}
+@font-face {
+  font-family: "humane-medium";
+  src: local("humane-medium"),url("./assets/fonts/humane/Humane-Medium.woff");
+}
+@font-face {
+  font-family: "humane-semi-bold";
+  src: local("humane-semi-bold"),url("./assets/fonts/humane/Humane-SemiBold.woff");
+}
+@font-face {
+  font-family: "humane-bold";
+  src: local("humane-bold"),url("./assets/fonts/humane/Humane-Bold.woff");
+}
+
+.ff-humane-extra-light{
+  font-family: 'humane-extra-light';
+}
+.ff-humane-light{
+  font-family: 'humane-light';
+}
+.ff-humane-regular{
+  font-family: 'humane-regular';
+}
+.ff-humane-medium{
+  font-family: 'humane-medium';
+}
+.ff-humane-semi-bold{
+  font-family: 'humane-semi-bold';
+}
+.ff-humane-bold{
+  font-family: 'humane-bold';
+}
+
 
 .ff-japanese {
   font-family: var(--ff-japanese);
