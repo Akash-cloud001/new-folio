@@ -58,13 +58,13 @@ const Scene = () => {
       <group ref={coderRef} scale={1}>
         <SkyborgTyping
           ref={skyborgRef}
-          scale={2.34}
-          position={[1.35, -2.42, 2.27]}
+          scale={2}
+          position={[1.35, -2.32, 2.27]}
           rotation={[0, -2.42, 0]}
         />
         <mesh
           ref={customRef}
-          rotation={[0, -2.42, 0]}
+          rotation={[0, -2.32, 0]}
           position={[-0.75, 0.37, 0.19]}
         >
           <planeGeometry args={[4, 2.5, 64, 64]} />
