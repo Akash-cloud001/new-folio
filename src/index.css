@@ -147,7 +147,9 @@
 .bg-light{
   background-color: var(--color-text);
 }
-
+.bg-primary{
+  background-color: var(--primary-red);
+}
 
 
 .ff-extra-light {
