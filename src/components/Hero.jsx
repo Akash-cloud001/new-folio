@@ -1,23 +1,13 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Environment, OrbitControls} from "@react-three/drei";
+import { Environment, Html, OrbitControls} from "@react-three/drei";
 import "../App.css";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import Loading from "./Loading";
+import Loading from "./ui/Loading";
 import Scene from "./ui/Scene";
 import { useControls } from "leva";
-
-// import studio from "@theatre/studio";
-// import extension from "@theatre/r3f/dist/extension"
-// studio.initialize();
-// studio.extend(extension)
-
-// Vite
-// if (import.meta.env.DEV) {
-//   studio.initialize()
-//   studio.extend(extension)
-// }
+import BugIcon from "./svgComponents/BugIcon";
 
 
 gsap.registerPlugin(useGSAP);
@@ -79,18 +69,30 @@ const CustomCamera = ({ skyborgRef }) => {
 const Hero = () => {
 
   return (
-    <section className="hero-container">
-      <Canvas
-        shadows={true}
-        dpr={[1, 2]}
-        camera={{ position: [0, 1.50, 5.58], fov: 55 }}
-      >
-        <Suspense fallback={<Loading />}>
-        <CustomCamera />
-          <color args={["#151515"]} attach="background" />
-          <Scene/>
-        </Suspense>
-      </Canvas>
+    <section className="hero-container absolute h-screen w-full inset-0">
+        <Canvas
+          shadows={true}
+          dpr={[1, 2]}
+          camera={{ position: [0, 1.50, 5.58], fov: 55 }}
+        >
+          <Suspense fallback={<Loading />}>
+          <CustomCamera />
+            <color args={["#151515"]} attach="background" />
+            <Scene/>
+          </Suspense>
+        </Canvas>
+        {/* px-4 sm:px-6 md:px-8 lg:px-11 */}
+        <article className="absolute bottom-4 left-4 sm:left-6 md:left-8 lg:left-11 flex items-center justify-center gap-3 text-color tracking-widest ff-regular">
+          <p>
+            TURNING  
+          </p> 
+          <figure>
+            <BugIcon />
+          </figure>
+          <p>
+            INTO FEATURES SINCE 2022.
+          </p>
+        </article>
     </section>
   );
 };

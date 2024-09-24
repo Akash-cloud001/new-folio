@@ -122,6 +122,9 @@
 .fill-primary {
   fill: var(--primary-red);
 }
+.fill-text{
+  fill: var(--color-text)
+}
 .secondary-neon {
   color: var(--secondary-neon);
 }
