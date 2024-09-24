@@ -116,6 +116,7 @@
 .ff-hindi {
   font-family: var(--ff-hindi);
 }
+
 .primary-red {
   color: var(--primary-red);
 }
@@ -131,9 +132,21 @@
 .text-color {
   color: var(--color-text);
 }
+.text-dark-color{
+  color: var(--color-bg-alt);
+}
 .white-color {
   color: var(--color-white);
 }
+.bg-dark{
+  background-color: var(--color-bg-alt);
+}
+.bg-light{
+  background-color: var(--color-text);
+}
+
+
+
 .ff-extra-light {
   font-family: ClashDisplayExtraLight;
 }
