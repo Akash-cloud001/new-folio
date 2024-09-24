@@ -7,8 +7,10 @@ gsap.registerPlugin(useGSAP);
 
 const Navbar = () => {
   const sideBarRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const menuBarRef = useRef(null);
   const isFirstRender = useRef(true); // Track initial render
+
+  const [isOpen, setIsOpen] = useState(false);
   const navItems = [
     {
       name: "about me",
@@ -54,12 +56,45 @@ const Navbar = () => {
         duration: 0.75,
         ease: "expoScale(0.5,7,none)",
       });
+
+      gsap.to(menuBarRef.current.querySelector("#first-line"), {
+        rotate: 45,
+        transformOrigin: "50% 50%",
+        duration: 0.5,
+        ease: "back.out",
+        fill: '#1d1d1d'
+      });
+      gsap.to(menuBarRef.current.querySelector("#second-line"), {
+        rotate: -45,
+        transformOrigin: "50% 50%",
+        duration: 0.5,
+        ease: "back.out",
+        fill: '#1d1d1d'
+      });
+
     } else {
       gsap.to(sideBarRef.current, {
         x: "100%",
         duration: 0.75,
         ease: "expoScale(0.5,7,none)",
       });
+
+      gsap.to(menuBarRef.current.querySelector("#first-line"), {
+        rotate: 0,
+        delay: 0.2,
+        duration: 0.5,
+        ease: "back.out",
+        fill: '#f2e8de'
+      });
+      gsap.to(menuBarRef.current.querySelector("#second-line"), {
+        rotate: 0,
+        delay: 0.2,
+        duration: 0.5,
+        ease: "back.out",
+        fill: '#f2e8de'
+      });
+
+
     }
   }, [isOpen]);
 
@@ -70,9 +105,9 @@ const Navbar = () => {
         <button
           type="button"
           onClick={handleNavOpen}
-          className="p-[14px] rounded-full button-border absolute z-30 top-4 right-4 sm:right-6 md:right-8 lg:right-11  "
+          className={`p-[14px] rounded-full  absolute z-30 top-4 right-4 sm:right-6 md:right-8 lg:right-11 transition-all  ${isOpen ? 'button-border-dark':'button-border-light'}`}
         >
-          <MenuBarIcon className="fill-text" />
+          <MenuBarIcon ref={menuBarRef}  />
         </button>
       </figure>
       <div
