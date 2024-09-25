@@ -69,7 +69,7 @@ const CustomCamera = ({ skyborgRef }) => {
 const Hero = () => {
 
   return (
-    <section className="hero-container absolute h-screen w-full inset-0">
+    <section className="hero-container absolute h-dvh w-full inset-0">
         <Canvas
           shadows={true}
           dpr={[1, 2]}
@@ -82,14 +82,14 @@ const Hero = () => {
           </Suspense>
         </Canvas>
         {/* px-4 sm:px-6 md:px-8 lg:px-11 */}
-        <article className="absolute bottom-4 left-4 sm:left-6 md:left-8 lg:left-11 flex items-center justify-center gap-3 text-color tracking-widest ff-regular">
+        <article className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center gap-2 sm:gap-3 text-color tracking-wider sm:tracking-widest ff-regular text-sm">
           <p>
             TURNING  
           </p> 
           <figure>
             <BugIcon />
           </figure>
-          <p>
+          <p className="w-max">
             INTO FEATURES SINCE 2022.
           </p>
         </article>
