@@ -29,8 +29,14 @@ const CustomCamera = ({ skyborgRef }) => {
       setMousePos({ x, y });
     
     };
-
-    window.addEventListener("mousemove", handleMouseMove);
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+      // true for mobile device
+      // document.write("mobile device");
+      setMousePos({x:0, y:0});
+    }else{
+      // false for not mobile device
+      window.addEventListener("mousemove", handleMouseMove);
+    }    
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);

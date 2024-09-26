@@ -11,7 +11,7 @@ const Scene = () => {
   const coderRef = useRef();
   const skyborgRef = useRef();
   const customRef = useRef();
-  const [texture, setTexture] = useState(null);
+  const [scaleFac, setScaleFac] = useState(1);
   const videoTexture = useVideoTexture("/mVideo.mp4", {
     onUpdate: () => {
       setTexture(videoTexture);
@@ -19,6 +19,11 @@ const Scene = () => {
       videoTexture.magFilter = THREE.LinearFilter; // For better quality
       videoTexture.generateMipmaps = true; // Use mipmaps if you scale the texture
     },
+    muted: true,
+    autoplay: true,
+    loop: true,
+    crossOrigin: "anonymous",
+    playsInline: true,
   });
   videoTexture.wrapS = THREE.RepeatWrapping;
   videoTexture.wrapT = THREE.RepeatWrapping;
@@ -29,10 +34,40 @@ const Scene = () => {
   useEffect(() => {
     if (customRef.current && videoTexture) {
       customRef.current.material.uniforms.uTexture.value = videoTexture;
+      const videoElement = videoTexture.image;
+      videoElement.play();
     }
-  }, []);
 
+    const handleCoderScale = ()=>{
+      const screenWidth = window.innerWidth;
 
+      if(screenWidth >= 900){
+        setScaleFac(1)
+      }
+      else if(screenWidth >=768){
+        setScaleFac(0.8)
+      }
+      else if(screenWidth >= 640){
+        setScaleFac(0.7)
+        skyborgRef.current.position.x = 1.35;
+      }
+      else{
+        setScaleFac(0.7)
+        skyborgRef.current.position.x = 2;
+        customRef.current.position.x = 0;
+
+      }
+
+    }
+
+    window.addEventListener('resize', handleCoderScale)
+    handleCoderScale();
+    return(()=>{
+      window.removeEventListener('resize', handleCoderScale)
+    })
+  }, [videoTexture]);
+
+  
   useFrame((state, delta) => {
     if (customRef.current && customRef.current.material) {
       customRef.current.material.uniforms.uTime.value += delta;
@@ -55,7 +90,7 @@ const Scene = () => {
         castShadow
       />
       <ambientLight />
-      <group ref={coderRef} scale={1}>
+      <group ref={coderRef} scale={scaleFac}>
         <SkyborgTyping
           ref={skyborgRef}
           scale={2}
