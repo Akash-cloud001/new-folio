@@ -176,6 +176,7 @@ body {
   height: 100%;
   overflow-x: hidden;
   background: var(--primary-dark-blue);
+  cursor: none;
 }
 #main-container {
   background: var(--primary-dark-blue);

@@ -13,3 +13,10 @@
     /* background-position: center; */
     /* position: absolute; */
 }
+
+#cursor{
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 15px 0px;
+    mix-blend-mode: difference;
+    background: #fff;
+    pointer-events: none;
+}

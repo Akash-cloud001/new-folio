@@ -43,7 +43,6 @@ const Navbar = () => {
   ];
 
   const handleNavOpen = (event) => {
-    event.stopPropagation();
     setIsOpen(!isOpen);
   };
 
@@ -172,12 +171,12 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav className="fixed z-20 px-4 sm:px-6 md:px-8 lg:px-11 py-6 w-full ff-humane-semi-bold text-5xl tracking-[3px] flex items-center justify-between">
+    <nav className="fixed z-10 px-4 sm:px-6 md:px-8 lg:px-11 py-6 w-full ff-humane-semi-bold text-5xl tracking-[3px] flex items-center justify-between">
       <p className=" top-0 left-0 text-color">AKASH FOLIO</p>
       <button
         type="button"
         onClick={handleNavOpen}
-        className={`p-[14px] rounded-full  absolute z-30 top-4 right-4 sm:right-6 md:right-8 lg:right-11 transition-all  ${
+        className={`p-[14px] rounded-full  absolute z-30 top-4 right-4 sm:right-6 md:right-8 lg:right-11 transition-all cursor-none  ${
           isOpen ? "button-border-dark" : "button-border-light"
         }`}
       >

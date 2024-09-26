@@ -40,7 +40,6 @@ const Experience = () => {
 
   const scene = useThree();
   const textScale = 1;
-  console.log(textScale);
   // useGSAP(() => {
   //   if (skyRef.current.length) {
   //     gsap.from(

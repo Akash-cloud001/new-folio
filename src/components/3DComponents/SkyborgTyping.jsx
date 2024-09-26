@@ -5,7 +5,6 @@ const SkyborgTyping = forwardRef(( props , ref) => {
   const group = ref;
   const { nodes, materials, animations } = useGLTF("/skyborgTyping.glb");
   const { actions } = useAnimations(animations, group);
-  console.log(ref.current)
   useEffect(() => {
     actions["typing"].play();
   }, [props,actions]);
