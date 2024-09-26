@@ -57,6 +57,7 @@ const Navbar = () => {
     const tl = gsap.timeline({ paused: true });
 
     if (isOpen) {
+      tl.set(sideBarRef.current, { x: "100%" });
       tl.to(sideBarRef.current, {
         x: "0%",
         duration: 0.5,
@@ -106,14 +107,14 @@ const Navbar = () => {
           ease: "power3.out",
           stagger: 0.15,
         },
-        2
+        1
       );
       tl.play();
     } else {
       tl.to(
         sideBarRef.current,
         {
-          x: "100%",
+          x: "-100%",
           duration: 0.5,
           ease: "expoScale(0.5,7,none)",
         },
@@ -152,7 +153,7 @@ const Navbar = () => {
           ease: "power3.out",
           stagger: 0.15,
         },
-        0.5
+        0
       );
 
       tl.fromTo(
@@ -185,7 +186,7 @@ const Navbar = () => {
       <div
         ref={sideBarRef}
         className={`overlay absolute h-dvh overflow-hidden z-20 bg-light inset-0 px-4 sm:px-6 md:px-8 lg:px-11 py-4 flex flex-col justify-center gap-8 sm:gap-0 sm:flex-row  sm:justify-between items-center`}
-        style={{ transform: "translateX(100%)" }}
+        style={{ transform: "translateX(-100%)" }}
       >
         <ul
           ref={navItemsRef}
