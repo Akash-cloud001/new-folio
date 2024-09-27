@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "./components/Hero";
 import Navbar from "./components/ui/Navbar";
 import "./App.css";
 import CustomCursor from "./components/ui/CustomCursor";
+import useLocoScroll from "./hooks/useLocoScroll";
 
 const App = () => {
-  
-
+  useLocoScroll(true)
+  // useEffect(()=>{
+  //   useLocoScroll(true)
+  // }),[]
   return (
-    <main id="main-containter relative">
+    <main data-scroll-container id="main-containter">
       <CustomCursor />
       <Navbar />
       <Hero />
