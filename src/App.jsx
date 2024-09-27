@@ -7,9 +7,6 @@ import useLocoScroll from "./hooks/useLocoScroll";
 
 const App = () => {
   useLocoScroll(true)
-  // useEffect(()=>{
-  //   useLocoScroll(true)
-  // }),[]
   return (
     <main data-scroll-container id="main-containter">
       <CustomCursor />
