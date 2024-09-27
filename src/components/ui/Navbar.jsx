@@ -193,7 +193,7 @@ const Navbar = () => {
         >
           {navItems.map((item, idx) => (
             <li className={navClass} key={item.name}>
-              <a href={item.link} className={item.anchorClasses}>
+              <a href={item.link} className={item.anchorClasses} onClick={handleNavOpen}>
                 {item.name}
               </a>
             </li>
@@ -203,7 +203,7 @@ const Navbar = () => {
         <ul ref={socialItemsRef} className="flex gap-8">
           <li>
             <a
-              href="https://x.com/WebDHub" target="_blank"
+              href="https://x.com/WebDHub" target="_blank" onClick={handleNavOpen} 
               className="p-[18px] rounded-full button-border-dark flex items-center justify-center"
             >
               <Twitter className="h-9 w-9 fill-dark-text opacity-80" />
@@ -211,7 +211,7 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              href="https://www.linkedin.com/in/akash-parmar-/" target="_blank"
+              href="https://www.linkedin.com/in/akash-parmar-/" target="_blank" onClick={handleNavOpen} 
               className="p-[18px] rounded-full button-border-dark flex items-center justify-center"
             >
               <Linkedin className="h-9 w-9 fill-dark-text opacity-80" />
@@ -219,7 +219,7 @@ const Navbar = () => {
           </li>
           <li>
             <a
-              href="https://github.com/Akash-cloud001" target="_blank"
+              href="https://github.com/Akash-cloud001" target="_blank" onClick={handleNavOpen} 
               className="p-[18px] rounded-full button-border-dark flex items-center justify-center"
             >
               <GithubLogo className="h-9 w-9 fill-dark-text opacity-80" />
