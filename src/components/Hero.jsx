@@ -75,7 +75,7 @@ const CustomCamera = ({ skyborgRef }) => {
 const Hero = () => {
 
   return (
-    <section className="hero-container absolute h-dvh w-full inset-0">
+    <section className="hero-container sticky top-0 h-dvh w-full">
         <Canvas
           shadows={true}
           dpr={[1, 2]}

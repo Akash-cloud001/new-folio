@@ -4,6 +4,7 @@ import Navbar from "./components/ui/Navbar";
 import "./App.css";
 import CustomCursor from "./components/ui/CustomCursor";
 import useLocoScroll from "./hooks/useLocoScroll";
+import useLenisSmoothScroll from "./hooks/useLenisSmoothScroll";
 
 const App = () => { 
   const [checkOs, setCheckOs] = useState(null);
@@ -16,7 +17,8 @@ const App = () => {
       setCheckOs('desktop');
     } 
   },[]);
-  useLocoScroll(true)
+  // useLocoScroll(true)
+  useLenisSmoothScroll();
   return (
     <main data-scroll-container id="main-containter">
       {checkOs === 'desktop' ? <CustomCursor /> : null}
