@@ -4,3 +4,6 @@
     background: #fff;
     pointer-events: none;
 }
+.main-container{
+    height: 600vh;
+}

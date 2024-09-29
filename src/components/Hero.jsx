@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState, forwardRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment, Html, OrbitControls} from "@react-three/drei";
 import "../App.css";
@@ -72,35 +72,29 @@ const CustomCamera = ({ skyborgRef }) => {
   return null;
 };
 
-const Hero = () => {
-
+const Hero = forwardRef((props, ref) => {
   return (
-    <section className="hero-container sticky top-0 h-dvh w-full">
-        <Canvas
-          shadows={true}
-          dpr={[1, 2]}
-          camera={{ position: [0, 1.50, 5.58], fov: 55 }}
-        >
-          <Suspense fallback={<Loading />}>
+    <section ref={ref} className="hero-container sticky top-0 h-dvh w-full">
+      <Canvas
+        shadows={true}
+        dpr={[1, 2]}
+        camera={{ position: [0, 1.50, 5.58], fov: 55 }}
+      >
+        <Suspense fallback={<Loading />}>
           <CustomCamera />
-            <color args={["#151515"]} attach="background" />
-            <Scene/>
-          </Suspense>
-        </Canvas>
-        {/* px-4 sm:px-6 md:px-8 lg:px-11 */}
-        <article className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center gap-2 sm:gap-3 text-color tracking-wider sm:tracking-widest ff-regular text-sm">
-          <p>
-            TURNING  
-          </p> 
-          <figure>
-            <BugIcon />
-          </figure>
-          <p className="w-max">
-            INTO FEATURES SINCE 2022.
-          </p>
-        </article>
+          <color args={["#151515"]} attach="background" />
+          <Scene />
+        </Suspense>
+      </Canvas>
+      <article className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center justify-center gap-2 sm:gap-3 text-color tracking-wider sm:tracking-widest ff-regular text-sm">
+        <p>TURNING</p>
+        <figure>
+          <BugIcon />
+        </figure>
+        <p className="w-max">INTO FEATURES SINCE 2022.</p>
+      </article>
     </section>
   );
-};
+});
 
 export default Hero;
