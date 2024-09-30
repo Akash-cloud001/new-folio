@@ -47,6 +47,7 @@ const App = () => {
       scale: 1,
       height: "100dvh",
       width: "100vw",
+      borderRadius: 0,
       translateZ: 0,
       transformPerspective: 1000, // Adds depth perspective
     });

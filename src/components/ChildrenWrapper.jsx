@@ -5,10 +5,10 @@ const ChildrenWrapper = forwardRef((props, ref) => {
     <>
       <section
           ref={ref}
-          className={`"content-wrapper absolute h-80 w-80 bg-red-400 z-10 left-1/2 scale-0 -translate-x-1/2 top-0"`}
+          className={`"content-wrapper absolute rounded-full h-80 w-80 overflow-hidden z-10 left-1/2 scale-0 -translate-x-1/2 top-[${window.innerHeight / 2 - 160} -translate-y-[${window.innerHeight / 2 - 160}]"`}
         >
-          <section className="h-screen bg-darker"></section>
-          <section className="h-screen bg-darker mb-10"></section>
+          <section className="h-screen bg-light"></section>
+          <section className="h-screen bg-light mb-10"></section>
         </section>
     </>
   );
