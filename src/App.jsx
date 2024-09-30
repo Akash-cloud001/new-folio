@@ -45,7 +45,7 @@ const App = () => {
         scrub: 1,
       },
       scale: 1,
-      height: "100dvh",
+      height: "max-content",
       width: "100vw",
       borderRadius: 0,
       translateZ: 0,

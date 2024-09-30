@@ -117,6 +117,27 @@
   font-family: var(--ff-hindi);
 }
 
+
+.ff-extra-light {
+  font-family: ClashDisplayExtraLight;
+}
+.ff-light {
+  font-family: ClashDisplayLight;
+}
+.ff-medium {
+  font-family: ClashDisplayMedium;
+}
+.ff-regular {
+  font-family: ClashDisplayRegular;
+}
+.ff-semibold {
+  font-family: ClashDisplaySemiBold;
+}
+.ff-bold {
+  font-family: ClashDisplayBold;
+}
+
+
 .primary-red {
   color: var(--primary-red);
 }
@@ -152,26 +173,6 @@
 }
 .bg-primary{
   background-color: var(--primary-red);
-}
-
-
-.ff-extra-light {
-  font-family: ClashDisplayExtraLight;
-}
-.ff-light {
-  font-family: ClashDisplayLight;
-}
-.ff-medium {
-  font-family: ClashDisplayMedium;
-}
-.ff-regular {
-  font-family: ClashDisplayRegular;
-}
-.ff-semibold {
-  font-family: ClashDisplaySemiBold;
-}
-.ff-bold {
-  font-family: ClashDisplayBold;
 }
 
 body {
