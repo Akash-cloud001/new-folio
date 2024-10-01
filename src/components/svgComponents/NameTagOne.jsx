@@ -3,8 +3,6 @@ import React from "react";
 const NameTagOne = (props) => {
   return (
     <svg
-      width="350"
-      height="169"
       viewBox="0 0 350 169"
       fill="none"
       {...props}
