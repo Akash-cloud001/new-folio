@@ -11,3 +11,17 @@
     top: 140px;
     left: 135px;
 }
+.text-stroke {
+    color: var(--secondary-neon);
+    -webkit-text-fill-color: transparent;
+    /* Will override color (regardless of order) */
+    -webkit-text-stroke: 2px var(--secondary-neon);
+    font-size: clamp(20px, 12vw, 96px);
+    letter-spacing: 3px;
+  }
+  @media screen and (min-width:1024px) {
+    .text-stroke {
+      -webkit-text-fill-color: transparent;
+  
+    }
+  }
