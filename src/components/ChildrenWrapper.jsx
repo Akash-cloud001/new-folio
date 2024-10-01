@@ -10,7 +10,7 @@ const ChildrenWrapper = forwardRef((props, ref) => {
         >
           {/* <section className="h-screen bg-light"></section> */}
           <About />
-          <section className="h-screen bg-light mb-10"></section>
+          <section className="h-screen bg-light mb-10 w-100"></section>
         </section>
     </>
   );

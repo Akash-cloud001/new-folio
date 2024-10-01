@@ -22,7 +22,7 @@ const Navbar = () => {
   const navItems = [
     {
       name: "about me",
-      link: "#about-me",
+      link: "#aboutMe",
       anchorClasses: "text-dark-color uppercase opacity-80",
     },
     {

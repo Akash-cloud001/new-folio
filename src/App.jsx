@@ -25,7 +25,6 @@ const App = () => {
     }
   }, []);
 
-
   useEffect(() => {
     gsap.to(heroRef.current, {
       scrollTrigger: {
@@ -46,11 +45,22 @@ const App = () => {
       },
       scale: 1,
       height: "max-content",
-      width: "100vw",
+      width: "100%",
       borderRadius: 0,
       translateZ: 0,
       transformPerspective: 1000, // Adds depth perspective
     });
+    // Handle window resize
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
   return (
     <>
