@@ -30,8 +30,8 @@ const CustomCursor = () => {
     animateCursor();
 
     const totalBtn = document.querySelectorAll("button");
-    const tatalP = document.querySelectorAll("p");
-    const tatalAnchor = document.querySelectorAll("a");
+    const totalP = document.querySelectorAll("p");
+    const totalAnchor = document.querySelectorAll("a");
     totalBtn.forEach((btn) => {
       btn.addEventListener("mouseenter", () => {
         gsap.to(cursorRef.current, {
@@ -48,7 +48,7 @@ const CustomCursor = () => {
         });
       });
     });
-    tatalP.forEach((p) => {
+    totalP.forEach((p) => {
       p.addEventListener("mouseenter", () => {
         gsap.to(cursorRef.current, {
           scale: 2,
@@ -64,7 +64,7 @@ const CustomCursor = () => {
         });
       });
     });
-    tatalAnchor.forEach((a) => {
+    totalAnchor.forEach((a) => {
       a.addEventListener("mouseenter", () => {
         gsap.to(cursorRef.current, {
           scale: 4,
@@ -87,11 +87,11 @@ const CustomCursor = () => {
         button.removeEventListener("mouseenter", null);
         button.removeEventListener("mouseleave", null);
       });
-      tatalP.forEach((p) => {
+      totalP.forEach((p) => {
         p.removeEventListener("mouseenter", null);
         p.removeEventListener("mouseleave", null);
       });
-      tatalAnchor.forEach((a) => {
+      totalAnchor.forEach((a) => {
         a.removeEventListener("mouseenter", null);
         a.removeEventListener("mouseleave", null);
       });
@@ -101,7 +101,7 @@ const CustomCursor = () => {
     <div
       ref={cursorRef}
       id="cursor"
-      className="z-20 h-4 w-4 rounded-full  fixed top-0 left-0 mix-blend-difference"
+      className="z-20 h-5 w-5 rounded-full  fixed top-0 left-0 mix-blend-difference"
     ></div>
   );
 };
