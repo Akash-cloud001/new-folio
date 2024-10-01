@@ -41,7 +41,7 @@ const App = () => {
         start: "top center+=10%", // Start when the top of the element hits the center of the viewport
         end: "bottom center", // End when the bottom of the element hits the top of the viewport
         toggleActions: "play none none reverse",
-        scrub: 1,
+        scrub: 2,
       },
       scale: 1,
       height: "max-content",
@@ -52,7 +52,10 @@ const App = () => {
     });
     // Handle window resize
     const handleResize = () => {
-      ScrollTrigger.refresh();
+      clearTimeout(window.resizedFinished);
+      window.resizedFinished = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 250); // 250ms debounce
     };
 
     window.addEventListener("resize", handleResize);
