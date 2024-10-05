@@ -12,7 +12,7 @@ const About = () => {
   const firstImg = useRef(null);
   const firstContent = useRef(null);
   const secondContent = useRef(null);
-  // const secondImg = useRef(null);
+  const secondImg = useRef(null);
   useEffect(() => {
     gsap.fromTo(
       headerContain.current,
@@ -84,6 +84,21 @@ const About = () => {
         delay: 0.2
       }
     );
+    gsap.fromTo(
+      secondImg.current,
+      {
+        y: 100,
+        opacity: 0
+      },
+      {
+        y: 0,
+        opacity:1,
+        scrollTrigger: {
+          trigger: secondImg.current,
+          start: "top 70%",
+        }
+      }
+    );
   }, []);
 
   return (
@@ -99,7 +114,7 @@ const About = () => {
           </p>
         </figure>
 
-        <section ref={aboutContent} className="flex items-start justify-between h-full max-h-[750px] overflow-hidden">
+        <section ref={aboutContent} className="flex items-start justify-between h-full max-h-[750px] overflow-hidden relative">
           <figure ref={firstImg} className="w-1/2 max-w-[600px] h-full ">
             <img
               className="object-cover w-full h-full"
@@ -107,14 +122,14 @@ const About = () => {
               alt="akash in snow image"
             />
           </figure>
-          <article className="w-2/5 flex flex-col items-start gap-11 h-[750px]">
+          <article className="w-2/5 flex flex-col items-start gap-11 h-[750px] relative">
             <div ref={firstContent}>
               <TextStroke
                 content="Hi,"
                 className="text-6xl lg:text-[5rem] xl:text-8xl ff-bold"
               />
               <p className="text-3xl sm:text-4xl lg:text-[44px] ff-bold text-color tracking-wider mt-2 sm:mt-0 xl:mt-4">
-                I'm <span className="secondary-neon"> Akash Parmar</span> 👋🏼
+                I'm <span className="secondary-neon"> Akash Parmar</span> <span className="wave">👋🏼</span>
               </p>
             </div>
             <div ref={secondContent}>
@@ -128,7 +143,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="anime-name-container absolute -bottom-[56%] right-[5%]">
+            <div ref={secondImg} className="anime-name-container absolute bottom-0 right-0">
               <CurveText />
               <img
                 src="./akashAnime.png"
