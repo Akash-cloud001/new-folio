@@ -8,47 +8,82 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const headerContain = useRef(null);
-  // const aboutContent = useRef(null);
-  // const firstImg = useRef(null);
-  // const firstContent = useRef(null);
-  // const secondContent = useRef(null);
+  const aboutContent = useRef(null);
+  const firstImg = useRef(null);
+  const firstContent = useRef(null);
+  const secondContent = useRef(null);
   // const secondImg = useRef(null);
   useEffect(() => {
-    //   gsap.fromTo(headerContain.current,{
-    //     y: 100,
-    //     opacity: 0,
-    //   },
-    //   {
-    //     y:0,
-    //     opacity: 1,
-    //     // ease: 'elastic.inOut',
-    //     scrollTrigger:{
-    //       trigger: '#aboutMe',
-    //       start: 'top 70%',
-    //       end: 'bottom bottom',
-    //       duration: 0.75
-    //     }
-    //   }
-    // )
-    // gsap.fromTo(
-    //   firstImg.current,
-    //   {
-    //     y: 100,
-    //     opacity: 0
-    //   },
-    //   {
-    //     y:0,
-    //     opacity: 1,
-    //     // ease: 'elastic.inOut',
-    //     scrollTrigger:{
-    //       trigger: firstImg.current,
-    //       start: 'top 70%',
-    //       end: 'bottom bottom',
-    //       duration: 0.5
-    //     }
-    //   }
-    // )
-
+    gsap.fromTo(
+      headerContain.current,
+      {
+        y: 100,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        // ease: 'elastic.inOut',
+        scrollTrigger: {
+          trigger: "#aboutMe",
+          start: "top 70%",
+          end: "bottom bottom",
+        },
+        duration: 0.75,
+      }
+    );
+    gsap.fromTo(
+      firstImg.current,
+      {
+        y: 100,
+        opacity: 0,
+        scale: 0.7,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        // ease: 'elastic.inOut',
+        scrollTrigger: {
+          trigger: firstImg.current,
+          start: "top 80%",
+          end: "bottom bottom",
+        },
+        duration: 0.5,
+      }
+    );
+    gsap.fromTo(
+      firstContent.current,
+      {
+        y: 100,
+        opacity: 0
+      },
+      {
+        y: 0,
+        opacity:1,
+        scrollTrigger: {
+          trigger: aboutContent.current,
+          start: "top 60%",
+        },
+        delay: 0.2
+      }
+    );
+    gsap.fromTo(
+      secondContent.current,
+      {
+        y: 100,
+        opacity: 0
+      },
+      {
+        y: 0,
+        opacity:1,
+        scrollTrigger: {
+          trigger: aboutContent.current,
+          start: "top 60%",
+        },
+        delay: 0.2
+      }
+    );
   }, []);
 
   return (
@@ -64,12 +99,16 @@ const About = () => {
           </p>
         </figure>
 
-        <section className="flex items-start justify-between h-full max-h-[750px] overflow-hidden">
-          <figure className="w-1/2 max-w-[600px] h-full ">
-            <img className="object-cover w-full h-full" src="./akashInSnow.png" alt="akash in snow image" />
+        <section ref={aboutContent} className="flex items-start justify-between h-full max-h-[750px] overflow-hidden">
+          <figure ref={firstImg} className="w-1/2 max-w-[600px] h-full ">
+            <img
+              className="object-cover w-full h-full"
+              src="./akashInSnow.png"
+              alt="akash in snow image"
+            />
           </figure>
           <article className="w-2/5 flex flex-col items-start gap-11 h-[750px]">
-            <div>
+            <div ref={firstContent}>
               <TextStroke
                 content="Hi,"
                 className="text-6xl lg:text-[5rem] xl:text-8xl ff-bold"
@@ -78,7 +117,7 @@ const About = () => {
                 I'm <span className="secondary-neon"> Akash Parmar</span> 👋🏼
               </p>
             </div>
-            <div >
+            <div ref={secondContent}>
               <TextStroke
                 content="A Developer"
                 className="text-3xl sm:text-4xl ff-bold text-left "
@@ -89,9 +128,13 @@ const About = () => {
               </p>
             </div>
 
-            <div className="anime-name-container absolute -bottom-[56%] right-[5%]"> 
+            <div className="anime-name-container absolute -bottom-[56%] right-[5%]">
               <CurveText />
-              <img src="./akashAnime.png" alt="akash in anime image" className="h-56 w-56 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+              <img
+                src="./akashAnime.png"
+                alt="akash in anime image"
+                className="h-56 w-56 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              />
             </div>
           </article>
         </section>
