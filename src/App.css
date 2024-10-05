@@ -8,9 +8,9 @@
     height: 600vh;
 }
 .name-tag-one-content{
-    top: 140px;
-    left: 135px;
     
+    top: 102px;
+    left: 59px;
 }
 @media screen and (min-width:320px) {
   .name-tag-one-content {
@@ -22,6 +22,12 @@
   .name-tag-one-content {
     top: 126px;
     left: 100px;
+  }
+}
+@media screen and (min-width:1024px) {
+  .name-tag-one-content {
+    top: 140px;
+    left: 135px;
   }
 }
 .text-stroke {

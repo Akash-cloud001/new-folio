@@ -6,12 +6,15 @@ import CustomCursor from "./components/ui/CustomCursor";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ChildrenWrapper from "./components/ChildrenWrapper";
+import ComponentsWrapper from "./components/ComponentsWrapper";
 gsap.registerPlugin(ScrollTrigger);
-
+import useLenisSmoothScroll from './hooks/useLenisSmoothScroll'
 const App = () => {
+  useLenisSmoothScroll()
   const [checkOs, setCheckOs] = useState(null);
   const heroRef = useRef(null);
   const contentRef = useRef(null);
+  const componentRef = useRef(null);
 
   useEffect(() => {
     if (
@@ -35,21 +38,7 @@ const App = () => {
       },
       filter: "blur(5px)",
     });
-    gsap.to(contentRef.current, {
-      scrollTrigger: {
-        trigger: contentRef.current,
-        start: "top center+=10%", // Start when the top of the element hits the center of the viewport
-        end: "bottom center", // End when the bottom of the element hits the top of the viewport
-        toggleActions: "play none none reverse",
-        scrub: 2,
-      },
-      scale: 1,
-      height: "max-content",
-      width: "100%",
-      borderRadius: 0,
-      translateZ: 0,
-      transformPerspective: 1000, // Adds depth perspective
-    });
+
     // Handle window resize
     const handleResize = () => {
       clearTimeout(window.resizedFinished);
@@ -77,7 +66,8 @@ const App = () => {
         style={{ perspective: "1000px" }}
       >
         <Hero ref={heroRef} />
-        <ChildrenWrapper ref={contentRef} />
+        {/* <ChildrenWrapper ref={contentRef} /> */}
+        <ComponentsWrapper ref={componentRef} marginTop={heroRef?.current?.clientHeight} />
       </main>
     </>
   );
