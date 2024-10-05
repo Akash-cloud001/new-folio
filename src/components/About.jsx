@@ -106,7 +106,7 @@ const About = () => {
       <div className=" max-w-[1400px] mx-auto px-4 lg:px-8  xl:px-4">
         <figure
           ref={headerContain}
-          className="pt-20 ml-auto relative overflow-hidden w-max mb-20 sm:mb-24"
+          className="pt-20 ml-auto relative overflow-hidden w-max mb-16 sm:mb-16"
         >
           <NameTagOne className="w-44 sm:w-72 lg:w-[350px] h-auto" />
           <p className="name-tag-one-content absolute text-[1.1rem] sm:text-2xl md:text-3xl secondary-neon ff-semibold">
