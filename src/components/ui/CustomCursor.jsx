@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 const CustomCursor = () => {
   const cursorRef = useRef(null);
   useEffect(() => {
-    console.log(document.querySelectorAll("button"), "buttons");
     let mouseX = 0;
     let mouseY = 0;
     let cursorX = 0;
