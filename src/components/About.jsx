@@ -102,31 +102,31 @@ const About = () => {
   }, []);
 
   return (
-    <section id="aboutMe" className="about-me h-max bg-dark pb-24">
+    <section id="aboutMe" className="about-me h-max bg-dark pb-0 lg:pb-24">
       <div className=" max-w-[1400px] mx-auto px-4 lg:px-8  xl:px-4">
         <figure
           ref={headerContain}
           className="pt-20 ml-auto relative overflow-hidden w-max mb-16 sm:mb-16"
         >
-          <NameTagOne className="w-44 sm:w-72 lg:w-[350px] h-auto" />
-          <p className="name-tag-one-content absolute text-[1.1rem] sm:text-2xl md:text-3xl secondary-neon ff-semibold">
+          <NameTagOne className="w-56 sm:w-72 lg:w-[350px] h-auto" />
+          <p className="name-tag-one-content absolute text-lg sm:text-2xl lg:text-3xl secondary-neon ff-semibold">
             About Me
           </p>
         </figure>
 
-        <section ref={aboutContent} className="flex items-start justify-between h-full max-h-[750px] overflow-hidden relative">
-          <figure ref={firstImg} className="w-1/2 max-w-[600px] h-full ">
+        <section ref={aboutContent} className="flex flex-col lg:flex-row items-start justify-between h-full w-full lg:max-h-[750px] overflow-hidden relative ">
+          <figure ref={firstImg} className=" mx-auto w-full h-[270px] sm:h-[300px] lg:h-full lg:w-1/2 lg:max-w-[600px]  ">
             <img
               className="object-cover w-full h-full"
               src="./akashInSnow.png"
               alt="akash in snow image"
             />
           </figure>
-          <article className="w-2/5 flex flex-col items-start gap-11 h-[750px] relative">
+          <article className="mt-11 lg:mt-0w-full lg:w-2/5 flex flex-col items-start gap-11 h-[600px] sm:h-[700px] lg:h-[750px] relative">
             <div ref={firstContent}>
               <TextStroke
                 content="Hi,"
-                className="text-6xl lg:text-[5rem] xl:text-8xl ff-bold"
+                className="text-5xl sm:text-6xl lg:text-[5rem] xl:text-8xl ff-bold"
               />
               <p className="text-3xl sm:text-4xl lg:text-[44px] ff-bold text-color tracking-wider mt-2 sm:mt-0 xl:mt-4">
                 I'm <span className="secondary-neon"> Akash Parmar</span> <span className="wave">👋🏼</span>
@@ -137,13 +137,13 @@ const About = () => {
                 content="A Developer"
                 className="text-3xl sm:text-4xl ff-bold text-left "
               />
-              <p className="text-xl sm:text-2xl ff-semibold text-color tracking-wider mt-3 text-left ">
+              <p className="text-lg sm:text-2xl ff-medium text-color tracking-wider mt-2 text-left ">
                 from India, committed to making easy-to-use and attractive
                 websites.
               </p>
             </div>
 
-            <div ref={secondImg} className="anime-name-container absolute bottom-0 right-0">
+            <div ref={secondImg} className="anime-name-container relative mx-auto lg:absolute  bottom-12 lg:right-0">
               <CurveText />
               <img
                 src="./akashAnime.png"
