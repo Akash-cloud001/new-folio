@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 import NameTagOne from "./svgComponents/NameTagOne";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TextStroke from "./ui/TextStroke";
 import CurveText from "./svgComponents/CurveText";
+import { Canvas } from "@react-three/fiber";
+import ImageShader from './3DComponents/ImageShader'
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
@@ -32,26 +34,26 @@ const About = () => {
         duration: 0.75,
       }
     );
-    gsap.fromTo(
-      firstImg.current,
-      {
-        y: 100,
-        opacity: 0,
-        scale: 0.7,
-      },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        // ease: 'elastic.inOut',
-        scrollTrigger: {
-          trigger: firstImg.current,
-          start: "top 80%",
-          end: "bottom bottom",
-        },
-        duration: 0.5,
-      }
-    );
+    // gsap.fromTo(
+    //   firstImg.current,
+    //   {
+    //     y: 100,
+    //     opacity: 0,
+    //     scale: 0.7,
+    //   },
+    //   {
+    //     y: 0,
+    //     opacity: 1,
+    //     scale: 1,
+    //     // ease: 'elastic.inOut',
+    //     scrollTrigger: {
+    //       trigger: firstImg.current,
+    //       start: "top 80%",
+    //       end: "bottom bottom",
+    //     },
+    //     duration: 0.5,
+    //   }
+    // );
     gsap.fromTo(
       firstContent.current,
       {
@@ -115,12 +117,13 @@ const About = () => {
         </figure>
 
         <section ref={aboutContent} className="flex flex-col lg:flex-row items-start justify-between h-full w-full lg:max-h-[750px] overflow-hidden relative ">
-          <figure ref={firstImg} className=" mx-auto w-full h-[270px] sm:h-[300px] lg:h-full lg:w-1/2 lg:max-w-[600px]  ">
-            <img
-              className="object-cover w-full h-full"
-              src="./akashInSnow.png"
-              alt="akash in snow image"
-            />
+          <figure ref={firstImg} className=" mx-auto w-full h-[270px] sm:h-[300px] lg:h-[750px] lg:w-1/2 lg:max-w-[600px]">
+            <Canvas dpr={[1,2]} camera={[45, window.innerWidth / window.innerHeight, 0.1, 100]}>
+              <Suspense>
+                <ImageShader textureSrc={'./akashInSnow.png'}/>
+              </Suspense>
+
+            </Canvas>
           </figure>
           <article className="mt-11 lg:mt-0w-full lg:w-2/5 flex flex-col items-start gap-11 h-[600px] sm:h-[700px] lg:h-[750px] relative">
             <div ref={firstContent}>
