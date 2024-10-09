@@ -70,3 +70,32 @@
   .journey-container{
     height: 300vh;
   }
+
+
+  .years-card{
+    border-top: 1px solid #f2e8de;
+    min-width: 500px;
+    position: relative;
+  }
+  .years-card::after{
+    content: '';
+    height: 50px;
+    width: 1px;
+    background-color: #f2e8de;
+    position: absolute;
+    top: 0;
+  }
+  .years-card::before{
+    content: '';
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #f2e8de;
+    position: absolute;
+    left: -4.5px;
+    top: 50px;
+  }
+  .years-card:nth-child(1)::after, 
+  .years-card:nth-child(1)::before{
+    display: none;
+  }

@@ -181,7 +181,7 @@ const About = () => {
         </section>
 
       </div>
-      <CubicalShapeOne className="absolute z-50 rotate-180 -scale-x-100 right-0  -bottom-[100px]" />
+      <CubicalShapeOne className="absolute z-50 rotate-180 -scale-x-100 right-0  -bottom-[95px]" />
     </section>
   );
 };
