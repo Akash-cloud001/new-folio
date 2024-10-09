@@ -6,6 +6,7 @@ import TextStroke from "./ui/TextStroke";
 import CurveText from "./svgComponents/CurveText";
 import { Canvas } from "@react-three/fiber";
 import ImageShader from "./3DComponents/ImageShader";
+import CubicalShapeOne from "./svgComponents/CubicalShapeOne";
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
@@ -104,7 +105,7 @@ const About = () => {
   }, []);
 
   return (
-    <section id="aboutMe" className="about-me h-max bg-dark pb-0 lg:pb-24">
+    <section id="aboutMe" className="about-me relative h-max bg-dark pb-0 lg:pb-24">
       <div className=" max-w-[1400px] mx-auto px-4 lg:px-8  xl:px-4">
         <figure
           ref={headerContain}
@@ -177,7 +178,9 @@ const About = () => {
             </div>
           </article>
         </section>
+
       </div>
+      <CubicalShapeOne className="absolute z-50 rotate-180 -scale-x-100 right-0  -bottom-[100px]" />
     </section>
   );
 };
