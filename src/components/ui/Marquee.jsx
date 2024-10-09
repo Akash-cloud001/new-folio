@@ -19,6 +19,7 @@ const Marquee = () => {
     );
 
     let totalItemsToCover = marqueeContainer.clientWidth / width;
+    console.log(Math.ceil(totalItemsToCover))
     if (marqueeContainer.children.length <= 3) {
       const clone = marqueeContent.cloneNode(true);
       marqueeContainer.prepend(clone);
@@ -70,7 +71,7 @@ const Marquee = () => {
   return (
     <div
       ref={marqueRef}
-      duration={40}
+      duration={60}
       className="absolute py-2  min-w-96 w-full -rotate-[18.6deg] bg-primary -bottom-0 -right-20 md:-bottom-0 lg:-bottom-10 md:-right-40 xl:-right-72 flex gap-6 overflow-hidden whitespace-nowrap "
     >
       <div className="marquee-content flex gap-6">
