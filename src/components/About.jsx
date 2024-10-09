@@ -58,11 +58,11 @@ const About = () => {
     gsap.fromTo(
       firstContent.current,
       {
-        y: 100,
+        x: 100,
         opacity: 0,
       },
       {
-        y: 0,
+        x: 0,
         opacity: 1,
         scrollTrigger: {
           trigger: aboutContent.current,
@@ -84,7 +84,7 @@ const About = () => {
           trigger: aboutContent.current,
           start: "top 60%",
         },
-        delay: 0.2,
+        delay: 0.5,
       }
     );
     gsap.fromTo(
@@ -100,12 +100,13 @@ const About = () => {
           trigger: secondImg.current,
           start: "top 70%",
         },
-      }
+        delay: 0.2
+      },
     );
   }, []);
 
   return (
-    <section id="aboutMe" className="about-me relative h-max bg-dark pb-0 lg:pb-24">
+    <section id="aboutMe" className="about-me relative h-max bg-dark pb-0 lg:pb-32">
       <div className=" max-w-[1400px] mx-auto px-4 lg:px-8  xl:px-4">
         <figure
           ref={headerContain}
@@ -147,9 +148,9 @@ const About = () => {
             <div ref={firstContent}>
               <TextStroke
                 content="Hi,"
-                className="text-5xl sm:text-6xl lg:text-[5rem] xl:text-8xl ff-bold"
+                className="text-4xl sm:text-6xl xl:text-7xl ff-bold"
               />
-              <p className="text-3xl sm:text-4xl lg:text-[44px] ff-bold text-color tracking-wider mt-2 sm:mt-0 xl:mt-4">
+              <p className="text-2xl sm:text-3xl lg:text-4xl ff-bold text-color tracking-wider mt-2 sm:mt-0 xl:mt-4">
                 I'm <span className="secondary-neon"> Akash Parmar</span>{" "}
                 <span className="wave">👋🏼</span>
               </p>
@@ -159,7 +160,7 @@ const About = () => {
                 content="A Developer"
                 className="text-3xl sm:text-4xl ff-bold text-left "
               />
-              <p className="text-lg sm:text-2xl ff-medium text-color tracking-wider mt-2 text-left">
+              <p className="text-lg sm:text-xl ff-medium text-color tracking-wider mt-2 text-left">
                 from India, committed to making easy-to-use and attractive
                 websites.
               </p>
@@ -167,7 +168,7 @@ const About = () => {
 
             <div
               ref={secondImg}
-              className="anime-name-container relative mx-auto lg:absolute bottom-4 sm:bottom-0 lg:bottom-12 lg:right-0" 
+              className="anime-name-container relative mx-auto lg:absolute -bottom-4 sm:bottom-0 lg:bottom-12 lg:right-0" 
             >
               <CurveText />
               <img
