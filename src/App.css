@@ -74,7 +74,7 @@
 
   .years-card{
     border-top: 1px solid #f2e8de;
-    min-width: 500px;
+    min-width: 505px;
     position: relative;
   }
   .years-card::after{
