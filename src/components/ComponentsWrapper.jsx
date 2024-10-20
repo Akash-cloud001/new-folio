@@ -1,6 +1,7 @@
 import React, { useEffect, forwardRef } from 'react';
 import About from './About';
-import Journey from './Journey';
+import Skills from './Skills';
+// import Journey from './Journey';
 
 const ComponentsWrapper = forwardRef(({ marginTop }, ref) => {
     useEffect(() => {
@@ -11,11 +12,12 @@ const ComponentsWrapper = forwardRef(({ marginTop }, ref) => {
     return (
         <section
             ref={ref}
-            className={`h-dvh w-full absolute z-50 top-[${marginTop}px]`}
+            className={`h-auto w-full absolute z-50 top-[${marginTop}px]`}
         >
             {/* Content goes here */}
             <About />
-            <Journey />
+            {/* <Journey /> */}
+            <Skills />
         </section>
     );
 });
