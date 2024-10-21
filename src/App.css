@@ -5,7 +5,7 @@
     pointer-events: none;
 }
 .main-container{
-    height: 600vh;
+    height: max-content;
 }
 .name-tag-one-content{
     

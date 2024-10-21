@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Hero from "./components/Hero";
 import Navbar from "./components/ui/Navbar";
 import "./App.css";
@@ -8,9 +8,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ChildrenWrapper from "./components/ChildrenWrapper";
 import ComponentsWrapper from "./components/ComponentsWrapper";
 gsap.registerPlugin(ScrollTrigger);
-import useLenisSmoothScroll from './hooks/useLenisSmoothScroll'
+import useLenisSmoothScroll from "./hooks/useLenisSmoothScroll";
 const App = () => {
-  useLenisSmoothScroll()
+  useLenisSmoothScroll();
   const [checkOs, setCheckOs] = useState(null);
   const heroRef = useRef(null);
   const contentRef = useRef(null);
@@ -28,7 +28,21 @@ const App = () => {
     }
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      setCheckOs("touch");
+    } else {
+      setCheckOs("desktop");
+    }
+  }, []);
+
+  // GSAP and scroll trigger in useLayoutEffect
+  useLayoutEffect(() => {
+    // GSAP scroll trigger
     gsap.to(heroRef.current, {
       scrollTrigger: {
         trigger: heroRef.current,
@@ -49,11 +63,13 @@ const App = () => {
 
     window.addEventListener("resize", handleResize);
 
-    // Cleanup event listener
+
+    // Cleanup event listener on unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   return (
     <>
       <Navbar />
@@ -61,13 +77,16 @@ const App = () => {
       {checkOs === "desktop" ? <CustomCursor /> : null}
       <main
         data-scroll-container
-        id="main-containter"
+        id="main-container"
         className="main-container relative"
         style={{ perspective: "1000px" }}
       >
         <Hero ref={heroRef} />
         {/* <ChildrenWrapper ref={contentRef} /> */}
-        <ComponentsWrapper ref={componentRef} marginTop={heroRef?.current?.clientHeight} />
+        <ComponentsWrapper
+          ref={componentRef}
+          marginTop={heroRef?.current?.clientHeight}
+        />
       </main>
     </>
   );
