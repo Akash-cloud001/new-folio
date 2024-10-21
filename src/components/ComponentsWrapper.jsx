@@ -1,6 +1,8 @@
 import React, { useEffect, forwardRef } from 'react';
 import About from './About';
 import Skills from './Skills';
+import Footer from './ui/Footer';
+import Project from './ui/Project';
 // import Journey from './Journey';
 
 const ComponentsWrapper = forwardRef(({ marginTop }, ref) => {
@@ -18,6 +20,8 @@ const ComponentsWrapper = forwardRef(({ marginTop }, ref) => {
             <About />
             {/* <Journey /> */}
             <Skills />
+            <Project />
+            <Footer />
         </section>
     );
 });
