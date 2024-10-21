@@ -192,7 +192,7 @@ body {
   color: var(--text);
   margin-inline: auto;
   position: relative;
-  padding-inline: 16px;
+  /* padding-inline: 16px; */
 }
 @media screen and (min-width: 640px) {
   #main-container {
