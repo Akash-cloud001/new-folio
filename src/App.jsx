@@ -9,6 +9,11 @@ import ChildrenWrapper from "./components/ChildrenWrapper";
 import ComponentsWrapper from "./components/ComponentsWrapper";
 gsap.registerPlugin(ScrollTrigger);
 import useLenisSmoothScroll from "./hooks/useLenisSmoothScroll";
+import Skills from "./components/Skills";
+import Project from "./components/ui/Project";
+import Footer from "./components/ui/Footer";
+import Journey from './components/Journey'
+import About from "./components/About";
 const App = () => {
   useLenisSmoothScroll();
   const [checkOs, setCheckOs] = useState(null);
@@ -63,7 +68,6 @@ const App = () => {
 
     window.addEventListener("resize", handleResize);
 
-
     // Cleanup event listener on unmount
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -82,11 +86,12 @@ const App = () => {
         style={{ perspective: "1000px" }}
       >
         <Hero ref={heroRef} />
-        {/* <ChildrenWrapper ref={contentRef} /> */}
-        <ComponentsWrapper
-          ref={componentRef}
-          marginTop={heroRef?.current?.clientHeight}
-        />
+        <About />
+
+        {/* <Journey /> */}
+        <Skills />
+        <Project />
+        <Footer />
       </main>
     </>
   );
