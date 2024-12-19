@@ -40,15 +40,18 @@ const Scene = () => {
 
     const handleCoderScale = ()=>{
       const screenWidth = window.innerWidth;
-
-      if(screenWidth >= 900){
-        setScaleFac(1)
-      }
-      else if(screenWidth >=768){
+      
+      if(screenWidth >= 1300){
         setScaleFac(0.8)
       }
+      else if(screenWidth >= 900){
+        setScaleFac(0.75)
+      }
+      else if(screenWidth >=768){
+        setScaleFac(0.65)
+      }
       else if(screenWidth >= 640){
-        setScaleFac(0.7)
+        setScaleFac(0.6)
         skyborgRef.current.position.x = 1.35;
       }
       else{

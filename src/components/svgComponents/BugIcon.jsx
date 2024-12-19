@@ -5,8 +5,6 @@ const BugIcon = (props) => {
     <>
       <svg
         {...props}
-        width="49"
-        height="30"
         viewBox="0 0 49 30"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
