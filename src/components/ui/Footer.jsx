@@ -38,7 +38,7 @@ const Footer = () => {
         scrollTrigger:{
           trigger:tyRef.current,
           start: 'top 90%',
-          end: 'bottom bottom+=100px',
+          end: 'bottom bottom+=57%',
           scrub: 1
         }
       }
