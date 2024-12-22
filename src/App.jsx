@@ -11,6 +11,7 @@ import Skills from "./components/Skills";
 import Project from "./components/ui/Project";
 import Footer from "./components/ui/Footer";
 import About from "./components/About";
+import Journey from "./components/Journey";
 const App = () => {
   const [checkOs, setCheckOs] = useState(null);
   const heroRef = useRef(null);
@@ -52,9 +53,9 @@ const App = () => {
         style={{ perspective: "1000px" }}
       >
         <Hero ref={heroRef} />
-        <About />
+        {/* <About /> */}
 
-        {/* <Journey /> */}
+        <Journey />
         <Skills />
         <Project />
         <Footer />
