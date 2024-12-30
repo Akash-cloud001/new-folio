@@ -94,7 +94,7 @@ const Hero = forwardRef((props, ref) => {
           className="text-3xl sm:text-5xl xl:text-6xl ff-bold"
         />
         <p className="text-2xl sm:text-3xl lg:text-4xl ff-bold text-color tracking-wider">
-          I'm <span className="secondary-neon"> Akash Parmar</span>{" "}
+          <span className="header-gradient">I'm</span> <span className="secondary-neon"> Akash Parmar</span>{" "}
           <span className="wave">👋🏼</span>
         </p>
         <p className="text-lg sm:text-xl ff-medium text-color tracking-wider -mt-1 max-w-lg">

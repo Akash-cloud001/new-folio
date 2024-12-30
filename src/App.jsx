@@ -47,14 +47,10 @@ const App = () => {
 
       {checkOs === "desktop" ? <CustomCursor /> : null}
       <main
-        data-scroll-container
         id="main-container"
-        className="main-container relative"
-        style={{ perspective: "1000px" }}
+        className="main-container"
       >
         <Hero ref={heroRef} />
-        {/* <About /> */}
-
         <Journey />
         <Skills />
         <Project />
