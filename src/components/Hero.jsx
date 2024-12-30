@@ -114,7 +114,7 @@ const Hero = forwardRef((props, ref) => {
           </Suspense>
         </Canvas>
       </section>
-        <article className=" hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 items-center justify-center gap-2 sm:gap-3 text-color tracking-wider sm:tracking-widest ff-regular text-xs xm:text-sm  w-full">
+        <article className=" hidden md:flex absolute bottom-4 left-1/2 -translate-x-1/2 items-center justify-center gap-2 sm:gap-3 text-color tracking-wider sm:tracking-widest ff-regular text-xs xm:text-sm  w-full">
          TURNING <BugIcon className="h-6 sm:h-8" /> INTO FEATURES SINCE 2022.
         </article>
     </section>
