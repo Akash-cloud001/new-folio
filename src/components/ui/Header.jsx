@@ -44,11 +44,11 @@ function Header({ headingName }) {
   return (
     <div ref={headerContainer} className="headerContainer">
       <p className="ff-humane-bold flex items-center sm:justify-start gap-4 w-full sm:w-max justify-between">
-        <span className=" text-6xl header-gradient opacity-80">{"{"} </span>
-        <span className=" text-5xl header-gradient pt-1 uppercase tracking-wider" ref={headerRef} >
+        <span className=" text-6xl text-color opacity-80">{"{"} </span>
+        <span className=" text-5xl text-color pt-1 uppercase tracking-wider" ref={headerRef} >
           {headingName}
         </span>
-        <span className=" text-6xl header-gradient opacity-80"> {"}"} </span>
+        <span className=" text-6xl text-color opacity-80"> {"}"} </span>
       </p>
     </div>
   );
