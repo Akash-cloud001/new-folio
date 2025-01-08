@@ -10,10 +10,8 @@ gsap.registerPlugin(ScrollTrigger);
 import Skills from "./components/Skills";
 import Project from "./components/ui/Project";
 import Footer from "./components/ui/Footer";
-import About from "./components/About";
 import Journey from "./components/Journey";
 import BackgroundScene from "./components/ui/BackgroundScene";
-import InfiniteGrid from "./components/3DComponents/InfiniteGrid";
 const App = () => {
   const [checkOs, setCheckOs] = useState(null);
   const heroRef = useRef(null);
