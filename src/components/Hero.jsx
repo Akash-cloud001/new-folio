@@ -86,7 +86,7 @@ const Hero = forwardRef((props, ref) => {
   return (
     <section
       ref={ref}
-      className="flex flex-col-reverse md:flex-row items-center h-auto w-full lg:justify-between relative lg:mt-0"
+      className="flex flex-col-reverse md:flex-row items-center h-auto w-full lg:justify-between relative lg:mt-0 "
     >
       <section className="first-half flex flex-col items-start gap-3 mb-20 lg:mb-0 pl-4 sm:pl-6 md:pl-8 lg:pl-11 -mt-24 z-10 md:z-0 md:mt-0">
         <TextStroke
@@ -109,7 +109,7 @@ const Hero = forwardRef((props, ref) => {
         >
           <Suspense fallback={<Loading />}>
             <CustomCamera />
-            <color args={["#151515"]} attach="background" />
+            {/* <color args={["#151515"]} attach="background" /> */}
             <Scene />
           </Suspense>
         </Canvas>

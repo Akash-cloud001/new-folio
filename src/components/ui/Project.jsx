@@ -29,7 +29,7 @@ const Project = () => {
     };
   }, []);
   return (
-    <section className="h-[200vh] w-full bg-darker relative">
+    <section className="h-[200vh] w-full relative">
       {/* <Canvas camera={{ fov: 20, position: [0, 0, 110] }}>
         <Suspense
           fallback={null}

@@ -57,7 +57,7 @@ const Journey = () => {
     <section
       ref={journeyMainRef}
       id="journey"
-      className="journey-container bg-darker mt-24 px-4 sm:px-6 md:px-8 lg:px-11"
+      className="journey-container mt-24 px-4 sm:px-6 md:px-8 lg:px-11"
     >
       <Header headingName={'JOURNEY'} />
       <article className="mt-16 sm:mt-20 mb-5 sm:mb-10">

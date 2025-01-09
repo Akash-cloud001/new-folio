@@ -15,8 +15,20 @@ import BackgroundScene from "./components/ui/BackgroundScene";
 const App = () => {
   const [checkOs, setCheckOs] = useState(null);
   const heroRef = useRef(null);
-
+  const totalHeight = useRef(0)
   useEffect(() => {
+    const getPageHeight = () => {
+      return Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight,
+        document.body.clientHeight,
+        document.documentElement.clientHeight
+      );
+    };
+    totalHeight.current = getPageHeight();
+    console.log(totalHeight.current)
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
@@ -46,7 +58,7 @@ const App = () => {
       <Navbar />
 
       {checkOs === "desktop" ? <CustomCursor /> : null}
-      <section className="h-dvh w-full z-[100]">
+      <section className="w-full z-[0] absolute inset-0" style={{height: totalHeight.current+'px' || '100dvh'}}>
       <BackgroundScene />
       </section>
       <main
