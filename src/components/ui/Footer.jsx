@@ -28,17 +28,17 @@ const Footer = () => {
     // GSAP animation with stagger
     gsap.fromTo(
       spans,
-      { opacity: 0, y: 50 }, // Starting state: invisible and below the view
+      { opacity: 0, y: 100 }, // Starting state: invisible and below the view
       {
         opacity: 1,
         y: 0, // Ending state: visible and in place
         stagger: 0.1, // Stagger delay between each character
-        duration: 0.5, // Animation duration
+        duration: 0.75, // Animation duration
         ease: 'power2.out', // Easing for a smooth animation
         scrollTrigger:{
           trigger:tyRef.current,
-          start: 'top 90%',
-          end: 'bottom bottom+=57%',
+          start: 'top 80%',
+          end: 'bottom bottom+=50%',
           scrub: 1
         }
       }
