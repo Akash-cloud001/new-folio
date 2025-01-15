@@ -16,13 +16,8 @@ const App = () => {
   const [checkOs, setCheckOs] = useState(null);
   const heroRef = useRef(null);
   const entryRef = useRef();
-  const handleScroll = (e)=>{
-    console.log(e, ' :: scroller')
-  }
+  
   useEffect(() => {
-    if(entryRef.current){
-      window.addEventListener('scroll', handleScroll);
-    }
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
@@ -56,7 +51,6 @@ const App = () => {
       <BackgroundScene />
       </section>
       <main
-        ref={entryRef}
         id="main-container"
         className="main-container"
         // onMouseMove={handleMouseMove}

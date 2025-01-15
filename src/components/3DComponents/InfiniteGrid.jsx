@@ -65,3 +65,4 @@ const InfiniteGrid = ({scrollPosition }) => {
   );
 };
 
+export default InfiniteGrid;
