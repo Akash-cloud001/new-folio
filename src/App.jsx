@@ -52,7 +52,7 @@ const App = () => {
       </section>
       <main
         id="main-container"
-        className="main-container"
+        className="main-container "
         // onMouseMove={handleMouseMove}
       >
         <Hero ref={heroRef} />
