@@ -42,10 +42,10 @@ const Scene = () => {
       const screenWidth = window.innerWidth;
       
       if(screenWidth >= 1300){
-        setScaleFac(0.8)
+        setScaleFac(1)
       }
       else if(screenWidth >= 900){
-        setScaleFac(0.75)
+        setScaleFac(0.8)
       }
       else if(screenWidth >=768){
         setScaleFac(0.65)
@@ -93,7 +93,7 @@ const Scene = () => {
         castShadow
       />
       <ambientLight />
-      <group ref={coderRef} scale={scaleFac}>
+      <group ref={coderRef} scale={scaleFac} position={[0,0,0]}>
         <SkyborgTyping
           ref={skyborgRef}
           scale={2}

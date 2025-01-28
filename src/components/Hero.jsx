@@ -86,22 +86,18 @@ const Hero = forwardRef((props, ref) => {
   return (
     <section
       ref={ref}
-      className="flex flex-col-reverse md:flex-row items-center h-auto w-full lg:justify-between relative lg:mt-0 max-w-[1400px] mx-auto"
+      className="flex flex-col items-center w-full lg:justify-center relative lg:mt-0 max-w-[1400px] mx-auto pt-4 h-screen"
     >
-      <section className="first-half flex flex-col items-start gap-3 mb-20 lg:mb-0 pl-4 sm:pl-6 md:pl-8 lg:pl-11 -mt-24 z-10 md:z-0 md:mt-0">
+      <section className="first-half flex flex-row items-start gap-2 sm:gap-4 z-10 md:z-0 absolute top-auto bottom-[150px] sm:bottom-auto sm:top-24 left-1/2 -translate-x-1/2">
         <TextStroke
-          content="Hi,"
-          className="text-3xl sm:text-5xl xl:text-6xl ff-bold"
+          content="creative"
+          className="text-[28px] sm:text-3xl md:text-4xl  ff-bold uppercase"
         />
-        <p className="text-2xl sm:text-3xl lg:text-4xl ff-bold text-color tracking-wider">
-          <span className="header-gradient">I'm</span> <span className="secondary-neon"> Akash Parmar</span>{" "}
-          <span className="wave">👋🏼</span>
-        </p>
-        <p className="text-lg sm:text-xl ff-medium text-color tracking-wider -mt-1 max-w-lg">
-          from India, committed to making easy-to-use and attractive websites.
+        <p className="text-[28px] sm:text-3xl md:text-4xl  ff-bold text-color tracking-wider">
+          <span className=" uppercase">Engineer</span>
         </p>
       </section>
-      <section className="hero-container relative h-[85dvh] md:h-dvh w-full md:w-1/2 lg:w-2/3">
+      <section className="hero-container h-full relative w-full mx-auto -mt-20 sm:mt-0">
         <Canvas
           shadows={true}
           dpr={[1, 2]}
@@ -114,9 +110,11 @@ const Hero = forwardRef((props, ref) => {
           </Suspense>
         </Canvas>
       </section>
-        <article className=" hidden md:flex absolute bottom-4 left-1/2 -translate-x-1/2 items-center justify-center gap-2 sm:gap-3 text-color tracking-wider sm:tracking-widest ff-regular text-xs xm:text-sm  w-full">
-         TURNING <BugIcon className="h-6 sm:h-8" /> INTO FEATURES SINCE 2022.
-        </article>
+      <section>
+        <p className="flex text-color gap-2 sm:gap-3 absolute left-1/2 -translate-x-1/2 bottom-[120px] sm:bottom-2 tracking-wider sm:tracking-widest ff-regular w-max text-xs sm:text-base md:text-lg">
+          TURNING <BugIcon className="h-6 sm:h-8" /> INTO FEATURES SINCE 2022
+        </p>
+      </section>
     </section>
   );
 });
