@@ -57,12 +57,12 @@ const Journey = () => {
     <section
       ref={journeyMainRef}
       id="journey"
-      className="journey-container relative mt-24 px-4 sm:px-6 md:px-8 lg:px-11 w-full max-w-[1400px] mx-auto"
+      className="journey-container relative -mt-0 md:mt-24 px-4 sm:px-6 md:px-8 lg:px-11 w-full max-w-[1400px] mx-auto"
     >
       {/* <Header headingName={'JOURNEY'} /> */}
-      <div className="flex items-center justify-between w-full gap-10">
-        <aside className="relative z-[0] w-[60%]">
-          <article className="mt-16 sm:mt-20 mb-5 sm:mb-10">
+      <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between w-full gap-4 md:gap-10">
+        <aside className="relative z-[0] w-full md:w-[60%]">
+          <article className="md:mt-16 sm:mt-20 mb-5 sm:mb-10">
             <aside className="flex flex-col items-start gap-8 sm:flex-row sm:items-center justify-start sm:gap-16">
               <div>
                 <TextStroke
@@ -152,8 +152,12 @@ const Journey = () => {
           </article>
         </aside>
 
-        <figure className="h-dvh">
-          <JourneyHead className="h-full w-[400px]"/>
+        <figure className="block md:hidden text-[110px] md:h-dvh ff-humane-bold white-text-grad tracking-wide">
+          JOURNEY
+          {/* <JourneyHead className="h-full w-full md:w-[400px]"/> */}
+        </figure>
+        <figure className="hidden md:block md:h-dvh w-1/3">
+          <JourneyHead className="h-full w-full "/>
         </figure>
       </div>
     </section>

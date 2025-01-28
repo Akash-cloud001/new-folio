@@ -225,3 +225,9 @@ body {
 .button-border-dark {
   border: 1px solid rgba(0, 0, 0, 0.4);
 }
+
+.white-text-grad{
+    background: -webkit-linear-gradient(-90deg, rgba(255,255,255,.3) 0%, rgba(34,34,34,.3) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
