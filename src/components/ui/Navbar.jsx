@@ -172,8 +172,8 @@ const Navbar = () => {
 
   return (
     <nav className="fixed z-50 px-4 sm:px-6 md:px-8 lg:px-11 py-6 w-full ff-humane-semi-bold text-5xl tracking-[3px] flex items-center justify-between">
-      <p className=" top-0 left-0 text-color">A_F</p>
-      {/* <p className=" top-0 left-0 text-color">AKASH FOLIO</p> */}
+      {/* <p className=" top-0 left-0 text-color">A_F</p> */}
+      <p className=" top-0 left-0 text-color">AKASH FOLIO</p>
       <button
         type="button"
         onClick={handleNavOpen}

@@ -100,7 +100,7 @@ const CustomCursor = () => {
     <div
       ref={cursorRef}
       id="cursor"
-      className="z-20 h-5 w-5 rounded-full  fixed top-0 left-0 mix-blend-difference"
+      className="z-50 h-5 w-5 rounded-full  fixed top-0 left-0 mix-blend-difference"
     ></div>
   );
 };
