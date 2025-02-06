@@ -61,13 +61,13 @@ const Journey = () => {
     >
       {/* <Header headingName={'JOURNEY'} /> */}
       <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between w-full gap-4 md:gap-10">
-        <aside className="relative z-[0] w-full md:w-[60%]">
+        <aside className="relative z-[0] w-full md:w-[60%] border border-white">
           <article className="md:mt-16 sm:mt-20 mb-5 sm:mb-10">
             <aside className="flex flex-col items-start gap-8 sm:flex-row sm:items-center justify-start sm:gap-16">
               <div>
                 <TextStroke
                   content="2024"
-                  className="text-5xl sm:text-6xl tracking-wider ff-bold "
+                  className="text-5xl w-max sm:text-6xl tracking-wider ff-bold "
                 />
               </div>
               <ul className="flex flex-col items-start justify-center gap-8 max-w-md">
@@ -156,9 +156,9 @@ const Journey = () => {
           JOURNEY
           {/* <JourneyHead className="h-full w-full md:w-[400px]"/> */}
         </figure>
-        <figure className="hidden md:block md:h-dvh w-1/3">
+        <p className="hidden md:block md:h-dvh w-1/3">
           <JourneyHead className="h-full w-full "/>
-        </figure>
+        </p>
       </div>
     </section>
   );

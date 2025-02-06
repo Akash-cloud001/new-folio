@@ -147,7 +147,7 @@
     /* Will override color (regardless of order) */
     -webkit-text-stroke: 1px var(--secondary-neon);
     font-family: "humane-bold";;
-    letter-spacing: 8px;
+    letter-spacing: 4px;
 }
 @media screen and (min-width:400px) {
   .hero-text-stroke{

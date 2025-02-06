@@ -132,13 +132,13 @@ const Hero = forwardRef((props, ref) => {
       ref={ref}
       className="flex flex-col items-center w-full lg:justify-center relative lg:mt-0 max-w-[1400px] mx-auto pt-4 h-screen overflow-x-hidden"
     >
-      <section className="first-half flex flex-row items-start gap-2 sm:gap-4 z-10 md:z-0 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-7xl sm:text-[9em] lg:text-[14em] xl:text-[19em] 2xl:text-[22em] transition-all">
+      <section className="first-half flex flex-row items-start gap-2 sm:gap-4 z-10 md:z-0 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-7xl sm:text-[9em] lg:text-[14em] xl:text-[19em] 2xl:text-[22em] transition-all ">
         <p ref={firstWord} className="hero-text-stroke uppercase transition-all">
           Creative
         </p>
         <p
           ref={secondWord}
-          className="uppercase text-color tracking-wider ff-humane-bold transition-all"
+          className="uppercase text-color tracking-wide ff-humane-bold transition-all"
         >
           Engineer
         </p>
@@ -156,7 +156,7 @@ const Hero = forwardRef((props, ref) => {
         </Canvas>
       </section>
       <section>
-        <p className="flex text-color gap-2 sm:gap-3 absolute left-1/2 -translate-x-1/2 bottom-[120px] sm:bottom-2 tracking-wider sm:tracking-widest ff-regular w-max text-xs sm:text-base ">
+        <p className="flex text-color gap-2 sm:gap-3 absolute left-1/2 -translate-x-1/2 bottom-[120px] sm:bottom-1 tracking-wider sm:tracking-widest ff-regular w-max text-xs sm:text-base ">
           TURNING <BugIcon className="h-6 sm:h-8" /> INTO FEATURES SINCE 2022
         </p>
       </section>

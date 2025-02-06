@@ -48,7 +48,7 @@ const App = () => {
       <Navbar />
       {checkOs === "desktop" ? <CustomCursor /> : null}
       <section className="w-full z-[0] fixed inset-0" style={{height: '100dvh'}}>
-      <BackgroundScene />
+      {/* <BackgroundScene /> */}
       </section>
       <main
         id="main-container"
